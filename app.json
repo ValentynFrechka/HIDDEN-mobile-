@@ -20,10 +20,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.iLeaf"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1141a67b-78ef-4c8b-9dd7-303da17475c1"
+      }
+    },
+    "owner": "donniemix"
   }
 }
