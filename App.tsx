@@ -16,10 +16,10 @@ export default function App() {
         })}
         initialRouteName={SCREEN_NAMES.HOME}
       >
-        <Tab.Screen name={SCREEN_NAMES.SHOP} component={HomeScreen} /> {/* Mocked by HomeScreen for now */}
-        <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={HomeScreen} /> {/* Mocked by HomeScreen for now */}
+        <Tab.Screen name={SCREEN_NAMES.SHOP} component={HomeScreen} />
+        <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={HomeScreen} />
         <Tab.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
-        <Tab.Screen name={SCREEN_NAMES.SETTINGS} component={HomeScreen} /> {/* Mocked by HomeScreen for now */}
+        <Tab.Screen name={SCREEN_NAMES.SETTINGS} component={HomeScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
