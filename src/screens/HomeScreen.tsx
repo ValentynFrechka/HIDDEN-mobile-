@@ -1,14 +1,32 @@
 import { TouchableOpacity, View, Text, Modal, TouchableWithoutFeedback } from "react-native";
 import dimensionStyles from "../styles/HomeScreen/dimension.styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import modalStyles from "../styles/HomeScreen/modal.styles";
+import {SERVER_DEV_URL, ServerRoutes} from '../constants/ui';
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
+    const [helloMessage, setHelloMessage] = useState('');
+
+    useEffect(() => {
+        fetch(`${SERVER_DEV_URL}/${ServerRoutes.Users}/welcome`)
+            .then((response) => {
+                const body = response.json();
+                console.log(response);
+                return body;
+            })
+            .then(body => setHelloMessage(body.message))
+        .catch(err => console.error(err));
+
+        return () => {
+            setHelloMessage('');
+        };
+    }, []);
 
     return (
         <>
         <View style={dimensionStyles.verticalContainer}>
+            <Text>{helloMessage}</Text>
             <TouchableOpacity
                 style={dimensionStyles.treeImageContainer}
                 onPress={() => setModalVisible(true)}
