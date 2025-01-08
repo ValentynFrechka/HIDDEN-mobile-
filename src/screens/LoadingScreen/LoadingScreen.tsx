@@ -1,12 +1,12 @@
 import React, { useEffect } from "react"
-import { ELoading } from "../enum/ELoading"
+import { ELoading } from "../../enum/ELoading"
 import { View, Text, Button } from "react-native"
 import * as Progress from "react-native-progress";
-import { useLoadingStateUtil } from "../util/loadingStateUtil";
-import { dimensionStyles, circleProps } from "../styles/LoadingScreen/dimension.styles"
+import { useLoadingStateUtil } from "../../util/loadingStateUtil";
+import { dimensionStyles, circleProps } from "./styles/dimension.styles"
 
 type LoadingScreenProps = {
-    initialLoadingState: ELoading.linking | ELoading.activating | ELoading.singingIn | ELoading.done,
+    initialLoadingState: ELoading.linking | ELoading.activating | ELoading.signingIn | ELoading.done,
     onLoadingStateChange: (newStep: ELoading) => void
 }
 

@@ -2,10 +2,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import React, { useCallback, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SCREEN_NAMES } from './src/constants/ui';
-import HomeScreen from './src/screens/HomeScreen';
+import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import { ELoading } from "./src/enum/ELoading";
-import LoadingScreen from "./src/screens/LoadingScreen";
+import LoadingScreen from "./src/screens/LoadingScreen/LoadingScreen";
 import { View } from "react-native";
+import TransactionScreen from "./src/screens/TransactionScreen/TransactionScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ export default function App() {
           initialRouteName={SCREEN_NAMES.HOME}
         >
           <Tab.Screen name={SCREEN_NAMES.SHOP} component={HomeScreen} />
-          <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={HomeScreen} />
+          <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={TransactionScreen} />
           <Tab.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
           <Tab.Screen name={SCREEN_NAMES.SETTINGS} component={HomeScreen} />
         </Tab.Navigator>

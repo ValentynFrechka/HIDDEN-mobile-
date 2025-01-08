@@ -1,6 +1,6 @@
 export enum ELoading {
     linking = "linking",
     activating = "activating",
-    singingIn = "signingIn",
+    signingIn = "signingIn",
     done = "done"
 }

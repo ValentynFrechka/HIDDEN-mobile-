@@ -8,7 +8,7 @@ export function useLoadingStateUtil(initialState: ELoading) {
                 return "Linking your NFC to app...";
             case ELoading.activating:
                 return "Activating your account...";
-            case ELoading.singingIn:
+            case ELoading.signingIn:
                 return "Signing you in...";
             case ELoading.done:
                 return "Done."
