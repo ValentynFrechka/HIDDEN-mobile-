@@ -4,6 +4,8 @@ import { View, Text, Button } from "react-native"
 import * as Progress from "react-native-progress";
 import { useLoadingStateUtil } from "../../util/loadingStateUtil";
 import { dimensionStyles, circleProps } from "./styles/dimension.styles"
+import { SafeAreaView } from "react-native-safe-area-context";
+import globalStyles from "../../styles/global.styles";
 
 type LoadingScreenProps = {
     initialLoadingState: ELoading.linking | ELoading.activating | ELoading.signingIn | ELoading.done,
@@ -21,13 +23,13 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ initialLoadingState, onLo
 
     if (loadingState !== ELoading.done) {
         return (
-            </* Debug */>
-            <Button /* Debug */ title="Change state" onPress={() => setLoadingState(ELoading.done)} style={{position: "absolute"}}/>
-            <View style={dimensionStyles.container}>
-                <Progress.Circle style={dimensionStyles.circleStyle} {...circleProps}/>
-                <Text style={dimensionStyles.loadingText}>{stateText}</Text>
-            </View>
-            </ /* Debug */>
+            <SafeAreaView style={globalStyles.safeAreaView}>
+                <Button /* Debug */ title="Change state" onPress={() => setLoadingState(ELoading.done)} style={{position: "absolute", marginTop: 50}}/>
+                <View style={dimensionStyles.container}>
+                    <Progress.Circle style={dimensionStyles.circleStyle} {...circleProps}/>
+                    <Text style={dimensionStyles.loadingText}>{stateText}</Text>
+                </View>
+            </SafeAreaView>
         )
     }
     else {

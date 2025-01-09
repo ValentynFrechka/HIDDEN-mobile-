@@ -1,9 +1,11 @@
-import { View, Text, TextInput, Button } from "react-native"
-import dimensionStyles from "../styles/transactionForm.styles"
-
+import { View, Text, TextInput, Button } from "react-native";
+import dimensionStyles from "../styles/transactionForm.styles";
+import { useTransactionFormValueContext } from "../contexts/TransactionFormValuesContext";
+import { ETransactionFormKeys } from "../enum/ETransactionFormKeys";
+import { useTransactionViewContext } from "../contexts/TransactionViewContext";
 
 const TransactionFormView = () => {
-
+    const { transactionFormValues, setTransactionFormValues, handleSubmit } = useTransactionFormValueContext();
 
     return (
         <View style={dimensionStyles.verticalContainer}>
@@ -12,10 +14,14 @@ const TransactionFormView = () => {
             <View style={dimensionStyles.inputsContainer}>
                 <TextInput 
                     style={dimensionStyles.inputField}
+                    value={transactionFormValues.recipientId}
+                    onChangeText={(value) => setTransactionFormValues(ETransactionFormKeys.recipientId, value)}
                 />
 
                 <TextInput 
                     style={dimensionStyles.inputField}
+                    value={transactionFormValues.amount}
+                    onChangeText={(value) => setTransactionFormValues(ETransactionFormKeys.amount, value)}
                 />
 
                 <View style={dimensionStyles.balanceContainer}>
@@ -25,7 +31,10 @@ const TransactionFormView = () => {
             </View>
 
             <View style={dimensionStyles.nextButtonContainer}>
-                <Button title="Next"/>
+                <Button 
+                    title="Next"
+                    onPress={handleSubmit}
+                />
             </View>
         </View>
     );
