@@ -13,6 +13,7 @@ const LeaderboardView = () => {
             <ScrollView>
                 {leaderboardDataMock.map((user) => (
                     <LeaderboardRow
+                        key={user.rank}
                         rank={user.rank}
                         avatarUrl={user.avatarUrl}
                         name={user.name}

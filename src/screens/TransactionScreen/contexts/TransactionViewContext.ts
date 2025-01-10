@@ -11,7 +11,7 @@ export const TransactionViewContext = createContext<TransactionViewContextType |
 export const useTransactionViewContext = () => {
     const context = useContext(TransactionViewContext);
     if (!context) {
-        throw new Error("useTransactionFormValueContext must be used within a TransactionFormValuesContextProvider");
+        throw new Error("useTransactionViewContext must be used within a TransactionViewContextProvider");
     }
     return context;
 }

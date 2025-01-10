@@ -9,6 +9,7 @@ import { View } from "react-native";
 import TransactionScreen from "./src/screens/TransactionScreen/TransactionScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "./src/styles/global.styles";
+import RewardsScreen from "./src/screens/RewardsScreen/RewardsScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -29,7 +30,7 @@ export default function App() {
             <Tab.Screen name={SCREEN_NAMES.SHOP} component={HomeScreen} />
             <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={TransactionScreen} />
             <Tab.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
-            <Tab.Screen name={SCREEN_NAMES.SETTINGS} component={HomeScreen} />
+            <Tab.Screen name={SCREEN_NAMES.REWARDS} component={RewardsScreen} />
           </Tab.Navigator>
         </SafeAreaView>
       </NavigationContainer>    

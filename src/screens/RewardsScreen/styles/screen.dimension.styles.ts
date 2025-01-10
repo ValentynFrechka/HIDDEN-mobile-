@@ -6,15 +6,11 @@ const dimensionStyles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        marginHorizontal: screenDims.width * 0.05,
-        marginVertical: screenDims.height * 0.01,
     },
-    title: {
-        fontSize: 20,
-        textAlign: "center",
-        textAlignVertical: "center",
-        marginBottom: 10
-    },
+    topBar: {
+        marginHorizontal: screenDims.width * 0.1,
+        marginVertical: screenDims.height * 0.02,
+    }
 });
 
 export default dimensionStyles;

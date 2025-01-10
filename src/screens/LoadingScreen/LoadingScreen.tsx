@@ -3,7 +3,7 @@ import { ELoading } from "../../enum/ELoading"
 import { View, Text, Button } from "react-native"
 import * as Progress from "react-native-progress";
 import { useLoadingStateUtil } from "../../util/loadingStateUtil";
-import { dimensionStyles, circleProps } from "./styles/dimension.styles"
+import { dimensionStyles, circleProps } from "./styles/screen.dimension.styles"
 import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "../../styles/global.styles";
 

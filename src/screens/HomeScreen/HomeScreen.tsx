@@ -1,7 +1,7 @@
 import { TouchableOpacity, View, Text, Modal, TouchableWithoutFeedback } from "react-native";
-import dimensionStyles from "./styles/dimension.styles";
+import dimensionStyles from "./styles/screen.dimension.styles";
 import { useState } from "react";
-import modalStyles from "./styles/modal.styles";
+import modalStyles from "./styles/screen.modal.styles";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);

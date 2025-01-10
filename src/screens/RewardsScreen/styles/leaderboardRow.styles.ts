@@ -6,9 +6,12 @@ const dimensionStyles = StyleSheet.create({
     roundedBlock: {
         flex: 1,
         justifyContent: "center",
-        padding: 3,
-        borderRadius: 5,
-        backgroundColor: "rgb(127, 114, 138)",
+        marginVertical: 5,
+        padding: 8,
+        borderRadius: 12,
+        backgroundColor: "rgb(164, 140, 184)",
+        borderWidth: 0.3,
+        borderColor: "rgb(201, 189, 224)"
     },
     horizontalContainer: {
         flexDirection: "row",
@@ -17,10 +20,12 @@ const dimensionStyles = StyleSheet.create({
     leftSubview: {
         flexDirection: "row",
         columnGap: 5,
+        alignItems: "center"
     },
     rank: {
         marginRight: 2,
         fontSize: 14,
+        color: "white",
         textAlignVertical: "center"
     },
     avatar: {
@@ -30,11 +35,13 @@ const dimensionStyles = StyleSheet.create({
     },
     name: {
         fontSize: 14,
+        color: "white",
         textAlignVertical: "center"
     },
     rightSubview: {
         flexDirection: "row",
         columnGap: 3,
+        alignItems: "center"
     },
     tokenIcon: {
         width: 16,
@@ -43,6 +50,7 @@ const dimensionStyles = StyleSheet.create({
     },
     tokenText: {
         fontSize: 12,
+        color: "white",
         textAlignVertical: "center",
     },
 });

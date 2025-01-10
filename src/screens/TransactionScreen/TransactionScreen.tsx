@@ -2,7 +2,7 @@ import { Alert, View } from "react-native"
 import TransactionFormView from "./views/TransactionFormView";
 import TransactionConfirmationView from "./views/TransactionConfirmationView";
 import TransactionSuccessfulView from "./views/TransactionSuccessfulView";
-import dimensionStyles from "./styles/dimension.styles";
+import dimensionStyles from "./styles/screen.dimension.styles";
 import { useState } from "react";
 import { ETransactionView } from "./enum/ETransactionView";
 import { TransactionFormValuesContext, TransactionFormValuesContextType } from "./contexts/TransactionFormValuesContext";
