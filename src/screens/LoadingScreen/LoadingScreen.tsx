@@ -24,7 +24,9 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ initialLoadingState, onLo
     if (loadingState !== ELoading.done) {
         return (
             <SafeAreaView style={globalStyles.safeAreaView}>
-                <Button /* Debug */ title="Change state" onPress={() => setLoadingState(ELoading.done)} style={{position: "absolute", marginTop: 50}}/>
+                <View style={{position: "absolute", marginTop: 50}}>
+                    <Button /* Debug */ title="Change state" onPress={() => setLoadingState(ELoading.done)} />
+                </View>
                 <View style={dimensionStyles.container}>
                     <Progress.Circle style={dimensionStyles.circleStyle} {...circleProps}/>
                     <Text style={dimensionStyles.loadingText}>{stateText}</Text>

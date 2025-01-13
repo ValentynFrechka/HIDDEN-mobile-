@@ -34,21 +34,23 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({ iconPath, name,
     return (
         <View style={dimensionStyles.roundedBlock}>
             <View style={dimensionStyles.horizontalContainer}>
-                <View style={dimensionStyles.verticalBuyContainer}>
-                    <View style={dimensionStyles.fertilizerContainer}>
-                        <View style={dimensionStyles.fertilizerIcon}>
+                <View style={dimensionStyles.horizontalSubcontainer}>
+                    <View style={dimensionStyles.verticalBuyContainer}>
+                        <View style={dimensionStyles.fertilizerContainer}>
+                            <View style={dimensionStyles.fertilizerIcon}>
 
+                            </View>
+
+                            <Text style={dimensionStyles.fertilizerName}>{name}</Text>
                         </View>
 
-                        <Text style={dimensionStyles.fertilizerName}>{name}</Text>
+                        <TouchableOpacity style={dimensionStyles.buyButton} onPress={handleBuy}>
+                            <Text style={dimensionStyles.buyText}>Buy</Text>
+                        </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={dimensionStyles.buyButton} onPress={handleBuy}>
-                        <Text style={dimensionStyles.buyText}>Buy</Text>
-                    </TouchableOpacity>
+                    {getDescriptionComponent()}
                 </View>
-
-                {getDescriptionComponent()}
 
                 <View style={dimensionStyles.verticalAmountPriceContainer}>
                     <View style={dimensionStyles.horizontalAmountContainer}>

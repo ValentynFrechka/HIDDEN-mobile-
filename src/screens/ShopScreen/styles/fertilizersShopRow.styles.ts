@@ -4,27 +4,33 @@ const screenDims = Dimensions.get("screen");
 
 const dimensionStyles = StyleSheet.create({
     roundedBlock: {
-        flex: 1,
         justifyContent: "center",
         marginVertical: 5,
-        padding: 8,
+        padding: 15,
         borderRadius: 12,
         backgroundColor: "rgb(164, 140, 184)",
-        borderWidth: 0.3,
+        borderWidth: 0.5,
         borderColor: "rgb(201, 189, 224)"
     },
     horizontalContainer: {
         flexDirection: "row",
+        alignItems: "stretch",
         justifyContent: "space-between",
+    },
+    horizontalSubcontainer: {
+        flexDirection: "row",
+        columnGap: 24,
+        flexShrink: 1,
     },
     verticalBuyContainer: {
         flexDirection: "column",
-        rowGap: 5,
-        alignItems: "center",
+        justifyContent: "space-between",
+        rowGap: 6,
+        alignItems: "flex-start",
     },
     fertilizerContainer: {
         flexDirection: "row",
-        columnGap: 3,
+        columnGap: 5,
         alignItems: "center"
     },
     fertilizerIcon: {
@@ -33,15 +39,16 @@ const dimensionStyles = StyleSheet.create({
         backgroundColor: "red",
     },
     fertilizerName: {
-        fontSize: 14,
+        fontSize: 16,
         color: "white",
         textAlignVertical: "center"
     },
     buyButton: {
         borderRadius: 10,
         backgroundColor: "pink",
-        paddingVertical: 5,
-        paddingHorizontal: 20,
+        alignItems: "center",
+        paddingVertical: 6,
+        paddingHorizontal: 32,
     },
     buyText: {
         fontSize: 12,
@@ -49,35 +56,42 @@ const dimensionStyles = StyleSheet.create({
     description: {
         fontSize: 12, 
         color: "white",
-        textAlign: "center"
+        textAlign: "center",
+        flexShrink: 1,
     },
     verticalAmountPriceContainer: {
+        marginLeft: 24,
         flexDirection: "column",
         rowGap: 5,
         alignItems: "flex-end"
     },
     horizontalAmountContainer: {
         flexDirection: "row",
-        columnGap: 3,
+        alignItems: "center",
+        columnGap: 6,
     },
     minusText: {
-        fontSize: 18,
+        fontSize: 24,
+        fontWeight: "bold",
         color: "white",
-        textAlign: "center"
+        textAlign: "center",
     },
     amountText: {
-        fontSize: 18,
+        fontSize: 20,
+        fontWeight: "bold",
         color: "white",
         textAlign: "center"
     },
     plusText: {
-        fontSize: 18,
+        fontSize: 24,
+        fontWeight: "bold",
         color: "white",
         textAlign: "center"
     },
     horizontalPriceContainer: {
         flexDirection: "row",
-        columnGap: 2,
+        alignItems: "center",
+        columnGap: 4,
     },
     leafIcon: {
         width: 16,
@@ -85,7 +99,7 @@ const dimensionStyles = StyleSheet.create({
         backgroundColor: "red",
     },
     priceText: {
-        fontSize: 12,
+        fontSize: 20,
         color: "white",
         textAlignVertical: "center",
     },

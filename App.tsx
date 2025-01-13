@@ -5,11 +5,11 @@ import { SCREEN_NAMES } from './src/constants/ui';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 import { ELoading } from "./src/enum/ELoading";
 import LoadingScreen from "./src/screens/LoadingScreen/LoadingScreen";
-import { View } from "react-native";
 import TransactionScreen from "./src/screens/TransactionScreen/TransactionScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "./src/styles/global.styles";
 import RewardsScreen from "./src/screens/RewardsScreen/RewardsScreen";
+import ShopScreen from "./src/screens/ShopScreen/ShopScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +27,7 @@ export default function App() {
             })}
             initialRouteName={SCREEN_NAMES.HOME}
           >
-            <Tab.Screen name={SCREEN_NAMES.SHOP} component={HomeScreen} />
+            <Tab.Screen name={SCREEN_NAMES.SHOP} component={ShopScreen} />
             <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={TransactionScreen} />
             <Tab.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
             <Tab.Screen name={SCREEN_NAMES.REWARDS} component={RewardsScreen} />
