@@ -7,7 +7,7 @@ import { ELoading } from "./src/enum/ELoading";
 import LoadingScreen from "./src/screens/LoadingScreen/LoadingScreen";
 import TransactionScreen from "./src/screens/TransactionScreen/TransactionScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
-import globalStyles from "./src/styles/global.styles";
+import globalStyles from "./src/styles/global.dimension.styles";
 import RewardsScreen from "./src/screens/RewardsScreen/RewardsScreen";
 import ShopScreen from "./src/screens/ShopScreen/ShopScreen";
 

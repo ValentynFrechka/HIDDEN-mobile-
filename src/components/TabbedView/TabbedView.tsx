@@ -36,7 +36,7 @@ const TabbedView: React.FC<TabbedViewProps> = ({ context, fontColor, views, init
                     <View
                         key={label}
                         style={{
-                            display: label === view ? 'flex' : 'none',
+                            display: label === view ? "flex" : "none",
                             flex: 1,
                         }}
                     >

@@ -1,43 +1,43 @@
 import { TouchableOpacity, View, Text, Modal, TouchableWithoutFeedback } from "react-native";
-import dimensionStyles from "./styles/screen.dimension.styles";
+import homeScreenDimensionStyles from "./styles/screen.dimension.styles";
 import { useState } from "react";
-import modalStyles from "./styles/screen.modal.styles";
+import homeScreenModalStyles from "./styles/screen.modal.styles";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
 
     return (
         <>
-        <View style={dimensionStyles.verticalContainer}>
+        <View style={homeScreenDimensionStyles.verticalContainer}>
             <TouchableOpacity
-                style={dimensionStyles.treeImageContainer}
+                style={homeScreenDimensionStyles.treeImageContainer}
                 onPress={() => setModalVisible(true)}
             />
-            <View style={dimensionStyles.statContainer}>
-                <View style={dimensionStyles.statSubcontainer}>
-                    <View style={dimensionStyles.statIcon}></View>
-                    <Text style={dimensionStyles.statText}>320</Text>
+            <View style={homeScreenDimensionStyles.statContainer}>
+                <View style={homeScreenDimensionStyles.statSubcontainer}>
+                    <View style={homeScreenDimensionStyles.statIcon}></View>
+                    <Text style={homeScreenDimensionStyles.statText}>320</Text>
                 </View>
                 
-                <View style={dimensionStyles.statSubcontainer}>
-                    <View style={dimensionStyles.statIcon}></View>
-                    <Text style={dimensionStyles.statText}>240</Text>
+                <View style={homeScreenDimensionStyles.statSubcontainer}>
+                    <View style={homeScreenDimensionStyles.statIcon}></View>
+                    <Text style={homeScreenDimensionStyles.statText}>240</Text>
                 </View>
             </View>
 
-            <View style={dimensionStyles.actionContainer}>
-                <TouchableOpacity style={dimensionStyles.actionSubcontainer}>
-                    <View style={dimensionStyles.actionIcon}></View>
+            <View style={homeScreenDimensionStyles.actionContainer}>
+                <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
+                    <View style={homeScreenDimensionStyles.actionIcon}></View>
                     <Text>Water my tree</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={dimensionStyles.actionSubcontainer}>
-                    <View style={dimensionStyles.actionIcon}></View>
+                <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
+                    <View style={homeScreenDimensionStyles.actionIcon}></View>
                     <Text>Feed my tree</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={dimensionStyles.actionSubcontainer}>
-                    <View style={dimensionStyles.actionIcon}></View>
+                <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
+                    <View style={homeScreenDimensionStyles.actionIcon}></View>
                     <Text>Care for my tree</Text>
                 </TouchableOpacity>
             </View>
@@ -49,30 +49,30 @@ const HomeScreen = () => {
             visible={isModalVisible}
             onRequestClose={() => setModalVisible(false)}
         >
-            <View style={modalStyles.overlay}>
-                <View style={modalStyles.window}>
-                    <View style={modalStyles.closeButtonContainer}>
+            <View style={homeScreenModalStyles.overlay}>
+                <View style={homeScreenModalStyles.window}>
+                    <View style={homeScreenModalStyles.closeButtonContainer}>
                         <TouchableOpacity 
-                            style={modalStyles.closeButton} 
+                            style={homeScreenModalStyles.closeButton} 
                             onPress={() => setModalVisible(false)}
                         />
                     </View>
 
-                    <Text style={modalStyles.title}>Tree information</Text>
+                    <Text style={homeScreenModalStyles.title}>Tree information</Text>
 
-                    <View style={modalStyles.dataContainer}>
-                        <View style={modalStyles.dataContainerRow}>
-                            <Text style={modalStyles.dataLabel}>NFT Contract Address</Text>
-                            <Text style={modalStyles.dataText}>5dje8b6joen97sw8en3he3jo</Text>
+                    <View style={homeScreenModalStyles.dataContainer}>
+                        <View style={homeScreenModalStyles.dataContainerRow}>
+                            <Text style={homeScreenModalStyles.dataLabel}>NFT Contract Address</Text>
+                            <Text style={homeScreenModalStyles.dataText}>5dje8b6joen97sw8en3he3jo</Text>
                         </View>
 
-                        <View style={modalStyles.dataContainerRow}>
-                            <Text style={modalStyles.dataLabel}>Leaves left</Text>
-                            <Text style={modalStyles.dataText}>180</Text>
+                        <View style={homeScreenModalStyles.dataContainerRow}>
+                            <Text style={homeScreenModalStyles.dataLabel}>Leaves left</Text>
+                            <Text style={homeScreenModalStyles.dataText}>180</Text>
                         </View>
 
-                        <View style={modalStyles.dataContainerRow}>
-                            <Text style={modalStyles.dataLabel}>Other service information</Text>
+                        <View style={homeScreenModalStyles.dataContainerRow}>
+                            <Text style={homeScreenModalStyles.dataLabel}>Other service information</Text>
                         </View>
                     </View>
                 </View>

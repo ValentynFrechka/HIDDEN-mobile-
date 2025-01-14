@@ -1,5 +1,5 @@
 export enum EShopView {
-    fertilizers,
-    skins,
-    mySkins,
-}
+    fertilizers = "Fertilizers",
+    skins = "Skins",
+    mySkins = "My skins",
+};

@@ -1,41 +1,29 @@
 import { useState } from "react";
 import { View } from "react-native";
-import FertilizersView from "./views/FertilizersView";
-import { ShopViewContext, ShopViewContextType } from "./contexts/ShopViewContext";
-import TopBar from "./components/TopBar";
+import FertilizersView from "./views/FertilizersView/FertilizersView";
+import shopScreenDimensionStyles from "./styles/screen.dimension.styles";
+import SkinsView from "./views/SkinsView/SkinsView";
+import MySkinsView from "./views/MySkinsView/MySkinsView";
+import TabbedView from "../../components/TabbedView/TabbedView";
 import { EShopView } from "./enum/EShopView";
-import dimensionStyles from "./styles/screen.dimension.styles";
-import SkinsView from "./views/SkinsView";
-import MySkinsView from "./views/MySkinsView";
+import { EViewContext } from "../../enum/EViewContext";
 
 const ShopScreen = () => {
-    const [shopView, setShopView] = useState<EShopView>(EShopView.fertilizers);
-
-    const shopViewContextValues: ShopViewContextType = {
-        shopView: shopView,
-        setShopView: setShopView
-    }
-
-    const renderCurrentView = () => {
-        switch (shopView) {
-            case EShopView.fertilizers:
-                return <FertilizersView />;
-            case EShopView.skins:
-                return <SkinsView />;
-            case EShopView.mySkins:
-                return <MySkinsView />;
-        }
-    }
 
     return (
-        <ShopViewContext.Provider value={shopViewContextValues}>
-            <View style={dimensionStyles.container}>
-                <TopBar style={dimensionStyles.topBar}/>
-
-                {renderCurrentView()}
-            </View>
-        </ShopViewContext.Provider>
-    )
+        <View style={shopScreenDimensionStyles.container}>
+            <TabbedView 
+                context={EViewContext.shop}
+                fontColor="white" 
+                views={{
+                    [EShopView.fertilizers]: FertilizersView,
+                    [EShopView.skins]: SkinsView,
+                    [EShopView.mySkins]: MySkinsView,
+                }} 
+                rerenderViews={false}
+            />
+        </View>
+    );
 };
 
 export default ShopScreen;

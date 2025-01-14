@@ -2,11 +2,13 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const screenDims = Dimensions.get("screen");
 
-const transactionScreenDimensionStyles = StyleSheet.create({
+const rewardsViewStyles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        alignItems: "center",
+        justifyContent: "center"
     },
+    
 });
 
-export default transactionScreenDimensionStyles;
+export default rewardsViewStyles;

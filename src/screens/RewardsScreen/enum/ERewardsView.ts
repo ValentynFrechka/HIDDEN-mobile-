@@ -1,5 +1,5 @@
 export enum ERewardsView {
-    rewards,
-    challenges,
-    leaderboard,
-}
+    rewards = "Rewards",
+    challenges = "Challenges",
+    leaderboard = "Leaderboard",
+};

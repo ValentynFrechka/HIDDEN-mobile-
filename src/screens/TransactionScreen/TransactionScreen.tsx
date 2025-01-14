@@ -1,8 +1,8 @@
 import { Alert, View } from "react-native"
-import TransactionFormView from "./views/TransactionFormView";
-import TransactionConfirmationView from "./views/TransactionConfirmationView";
-import TransactionSuccessfulView from "./views/TransactionSuccessfulView";
-import dimensionStyles from "./styles/screen.dimension.styles";
+import TransactionFormView from "./views/TransactionFormView/TransactionFormView";
+import TransactionConfirmationView from "./views/TransactionConfirmationView/TransactionConfirmationView";
+import TransactionSuccessfulView from "./views/TransactionSuccessfulView/TransactionSuccessfulView";
+import transactionScreenDimensionStyles from "./styles/screen.dimension.styles";
 import { useState } from "react";
 import { ETransactionView } from "./enum/ETransactionView";
 import { TransactionFormValuesContext, TransactionFormValuesContextType } from "./contexts/TransactionFormValuesContext";
@@ -55,7 +55,7 @@ const TransactionScreen = () => {
                     { component: TransactionViewContext.Provider, props: { value: transactionViewContextValue } },
                     { component: TransactionFormValuesContext.Provider, props: { value: transactionFormContextValue } }
                 ]}>
-                    <View style={dimensionStyles.container}>
+                    <View style={transactionScreenDimensionStyles.container}>
                         <TransactionFormView></TransactionFormView>
                     </View>
                 </Compose>
@@ -66,7 +66,7 @@ const TransactionScreen = () => {
                     { component: TransactionViewContext.Provider, props: { value: transactionViewContextValue } },
                     { component: TransactionFormValuesContext.Provider, props: { value: transactionFormContextValue } }
                 ]}>
-                    <View style={dimensionStyles.container}>
+                    <View style={transactionScreenDimensionStyles.container}>
                         <TransactionConfirmationView></TransactionConfirmationView>
                     </View>
                 </Compose>
@@ -74,7 +74,7 @@ const TransactionScreen = () => {
         case ETransactionView.success:
             return (
                 <TransactionViewContext.Provider value={transactionViewContextValue}>
-                    <View style={dimensionStyles.container}>
+                    <View style={transactionScreenDimensionStyles.container}>
                         <TransactionSuccessfulView></TransactionSuccessfulView>
                     </View>
                 </TransactionViewContext.Provider>

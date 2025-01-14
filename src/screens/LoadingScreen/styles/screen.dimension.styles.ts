@@ -2,7 +2,7 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const screenDims = Dimensions.get("screen");
 
-const dimensionStyles = StyleSheet.create({
+const loadingScreenDimensionStyles = StyleSheet.create({
     container: {
         flex: 1,
         rowGap: 18,
@@ -47,4 +47,4 @@ const circleProps = {
     borderWidth: 12
 };
 
-export { dimensionStyles, circleProps };
+export { loadingScreenDimensionStyles, circleProps };

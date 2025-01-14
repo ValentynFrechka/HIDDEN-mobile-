@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const modalStyles = StyleSheet.create({
+const homeScreenModalStyles = StyleSheet.create({
     overlay: {
         flex: 1,
         backgroundColor: "rgba(0, 0, 0, 0.3))",
@@ -43,4 +43,4 @@ const modalStyles = StyleSheet.create({
     },
 });
 
-export default modalStyles;
+export default homeScreenModalStyles;

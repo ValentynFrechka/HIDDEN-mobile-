@@ -2,7 +2,7 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const screenDims = Dimensions.get("screen");
 
-const dimensionStyles = StyleSheet.create({
+const homeScreenDimensionStyles = StyleSheet.create({
     verticalContainer: {
         flexDirection: "column",
         rowGap: 20,
@@ -49,4 +49,4 @@ const dimensionStyles = StyleSheet.create({
     },
 });
 
-export default dimensionStyles;
+export default homeScreenDimensionStyles;
