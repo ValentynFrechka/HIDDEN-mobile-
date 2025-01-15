@@ -1,6 +1,6 @@
 import { View, Text, ScrollView } from "react-native";
 import { leaderboardDataMock } from "../../mocks/leaderboardDataMock";
-import LeaderboardRow from "../../components/LeaderboardRow/LeaderboardRow";
+import LeaderboardRow from "./components/LeaderboardRow/LeaderboardRow";
 import leaderboardViewStyles from "./styles/leaderboardView.styles";
 
 const LeaderboardView = () => {
