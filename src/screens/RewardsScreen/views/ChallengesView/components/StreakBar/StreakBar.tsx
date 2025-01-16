@@ -33,15 +33,17 @@ const StreakBar: React.FC<StreakBarProps> = ({ today, streak, startingFrom }) =>
         const unfinishedDays = streakDays.slice(streak);
 
         return [
-            finishedDays.map((day) => (
+            finishedDays.map((day, index) => (
                 <StreakCircle 
+                    key={index}
                     day={day} 
                     isToday={day === today ? true : false} 
                     isActive={true} 
                 />
             )),
-            unfinishedDays.map((day) => (
+            unfinishedDays.map((day, index) => (
                 <StreakCircle 
+                    key={index}
                     day={day} 
                     isToday={false} 
                     isActive={false} 

@@ -11,7 +11,7 @@ const mySkinsViewStyles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        paddingTop: screenDims.height * 0.02,
+        marginTop: screenDims.height * 0.02,
     },
     twoColumnContainer: {
         flexDirection: "row",
