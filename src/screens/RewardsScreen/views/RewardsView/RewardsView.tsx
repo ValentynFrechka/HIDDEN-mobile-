@@ -33,7 +33,12 @@ const RewardsView = () => {
 
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
-        onMoveShouldSetPanResponder: () => true,
+        onMoveShouldSetPanResponder: (e, gestureState) => {
+            const {dx, dy} = gestureState;
+            const touchThreshold = 3;
+
+            return Math.abs(dx) > touchThreshold || Math.abs(dy) > touchThreshold;
+        },
         onPanResponderMove: (e, gestureState) => {
             const { dx, dy } = gestureState;
 
