@@ -10,6 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "./src/styles/global.dimension.styles";
 import RewardsScreen from "./src/screens/RewardsScreen/RewardsScreen";
 import ShopScreen from "./src/screens/ShopScreen/ShopScreen";
+import { Text, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -18,22 +19,47 @@ export default function App() {
 
   if (loadingState === ELoading.done) {
     return (
+      <View style={{flex: 1, backgroundColor: "rgb(76, 54, 95)"}}>
       <NavigationContainer>
         <SafeAreaView style={globalStyles.safeAreaView}>
           <Tab.Navigator
             screenOptions={({ route }) => ({
-              tabBarLabelStyle: { fontSize: 12 },
-              tabBarStyle: { height: 60 },
+              tabBarLabelStyle: { 
+                fontSize: 12,
+                color: "rgb(255,174,0)",
+                boxShadow: "-1px 2px 7.8px 0px rgba(220, 120, 253, 0.2)"
+              },
+              tabBarLabel: ({focused}) => {
+                const color = focused ? "rgb(255,174,0)" : "white";
+
+                return (
+                  <Text style={{
+                    fontSize: 12,
+                    color: color,
+                    boxShadow: "-1px 2px 7.8px 0px rgba(220, 120, 253, 0.2)"
+                  }}>
+                    {route.name}
+                  </Text>
+                )
+              },
+              tabBarStyle: { 
+                height: 60,
+                borderTopStartRadius: 15,
+                borderTopEndRadius: 15,
+                backgroundColor: "rgb(76, 54, 95)"
+              },
+              headerShown: false,
             })}
             initialRouteName={SCREEN_NAMES.HOME}
           >
+            <Tab.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
             <Tab.Screen name={SCREEN_NAMES.SHOP} component={ShopScreen} />
             <Tab.Screen name={SCREEN_NAMES.TRANSACTION} component={TransactionScreen} />
-            <Tab.Screen name={SCREEN_NAMES.HOME} component={HomeScreen} />
             <Tab.Screen name={SCREEN_NAMES.REWARDS} component={RewardsScreen} />
           </Tab.Navigator>
         </SafeAreaView>
-      </NavigationContainer>    
+      </NavigationContainer>   
+      </View> 
     );
   }
   else {
