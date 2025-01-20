@@ -19,7 +19,6 @@ const globalDimensionStyles = StyleSheet.create({
         justifyContent: "center",
     },
     profileButton: {
-        backgroundColor: "red", 
         height: profileButtonDimensions.size, 
         width: profileButtonDimensions.size, 
         marginTop: profileButtonDimensions.marginTop,
