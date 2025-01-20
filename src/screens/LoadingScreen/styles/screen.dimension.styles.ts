@@ -20,7 +20,7 @@ const loadingScreenDimensionStyles = StyleSheet.create({
         textAlign: "center",
         width: screenDims.width * 0.27,
         fontSize: 18,
-        color: "white"
+        color: "white",
     },
     doneIcon: {
         width: 60,
@@ -30,12 +30,14 @@ const loadingScreenDimensionStyles = StyleSheet.create({
     doneTitle: {
         textAlign: "center",
         width: screenDims.width * 0.6,
-        fontSize: 26
+        fontSize: 26,
+        color: "white",
     },
     doneText: {
         textAlign: "center",
         width: screenDims.width * 0.6,
-        fontSize: 18
+        fontSize: 18,
+        color: "white",
     },
 });
 
