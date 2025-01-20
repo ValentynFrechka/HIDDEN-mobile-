@@ -6,7 +6,7 @@ const screenDims = Dimensions.get("screen");
 const rewardsScreenDimensionStyles = StyleSheet.create({
     container: {
         ...globalDimensionStyles.container,
-        backgroundColor: "rgb(112, 21, 182)"
+        ...globalDimensionStyles.topProfileButtonPadding,
     },
 });
 

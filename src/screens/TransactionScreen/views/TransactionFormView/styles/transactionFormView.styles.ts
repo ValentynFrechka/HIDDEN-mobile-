@@ -5,7 +5,6 @@ const screenDims = Dimensions.get("screen");
 const transactionFormViewStyles = StyleSheet.create({
     verticalContainer: {
         flex: 1,
-        marginTop: screenDims.height * 0.1,
         marginHorizontal: screenDims.width * 0.15,
         flexDirection: "column",
         rowGap: 30,
@@ -21,14 +20,16 @@ const transactionFormViewStyles = StyleSheet.create({
     title: {
         textAlign: "center",
         fontSize: 20,
+        color: "white",
     },
     inputField: {
         borderWidth: 1,
-        borderColor: "rgb(0,0,0)",
+        borderColor: "white",
         borderRadius: 2,
         padding: 12,
         fontSize: 18,
-        textAlignVertical: "center"
+        textAlignVertical: "center",
+        color: "white",
     },
     balanceContainer: {
         alignSelf: "stretch",
@@ -44,6 +45,7 @@ const transactionFormViewStyles = StyleSheet.create({
     balanceLabel: {
         fontSize: 14,
         textAlignVertical: "center",
+        color: "white",
     },
     nextButtonContainer: {
         alignSelf: "stretch"

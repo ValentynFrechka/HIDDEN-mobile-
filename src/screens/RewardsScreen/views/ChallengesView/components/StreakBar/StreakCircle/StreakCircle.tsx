@@ -13,14 +13,14 @@ const StreakCircle: React.FC<StreakCircleProps> = ({ day, isToday, isActive }) =
     const getStyleForCircle = () => {
         return [
             (isToday ? streakCircleStyles.bigCircle : streakCircleStyles.regularCircle), 
-            (isActive ? {backgroundColor: streakCircleColors.greenColor} : {backgroundColor: "rgb(112, 21, 182)"})
+            (isActive ? {backgroundColor: streakCircleColors.greenColor} : {backgroundColor: "rgb(76, 54, 95)"})
         ]
     };
 
     const getStyleForText = () => {
         return [
             (isToday ? streakCircleStyles.bigText : streakCircleStyles.regularText),
-            (isActive ? {color: "rgb(112, 21, 182)"} : {color: streakCircleColors.greenColor}) 
+            (isActive ? {color: "rgb(76, 54, 95)"} : {color: streakCircleColors.greenColor}) 
         ]
     }
 

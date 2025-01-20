@@ -1,11 +1,11 @@
 import { Dimensions, StyleSheet } from "react-native";
+import globalDimensionStyles from "../../../../../styles/global.dimension.styles";
 
 const screenDims = Dimensions.get("screen");
 
 const transactionConfirmationViewStyles = StyleSheet.create({
     verticalContainer: {
         flex: 1,
-        marginTop: screenDims.height * 0.1,
         marginHorizontal: screenDims.width * 0.15,
         flexDirection: "column",
         rowGap: 30,
@@ -23,9 +23,11 @@ const transactionConfirmationViewStyles = StyleSheet.create({
     title: {
         textAlign: "center",
         fontSize: 20,
+        color: "white",
     },
     infoLabel: {
         fontSize: 18,
+        color: "white",
     },
     buttonContainer: {
         flexDirection: "row",

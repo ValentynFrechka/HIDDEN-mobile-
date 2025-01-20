@@ -6,7 +6,7 @@ const screenDims = Dimensions.get("screen");
 const shopScreenDimensionStyles = StyleSheet.create({
     container: {
         ...globalDimensionStyles.container,
-        backgroundColor: "rgb(112, 21, 182)"
+        ...globalDimensionStyles.topProfileButtonPadding,
     },
     topBar: {
         marginHorizontal: screenDims.width * 0.1,

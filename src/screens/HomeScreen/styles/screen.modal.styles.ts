@@ -9,8 +9,7 @@ const homeScreenModalStyles = StyleSheet.create({
     },
     window: {
         width: "70%",
-        height: "60%",
-        backgroundColor: "#fff",
+        backgroundColor: "rgba(255,255,255,0.2)",
         borderRadius: 5,
     },
     closeButtonContainer: {
@@ -24,13 +23,16 @@ const homeScreenModalStyles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        alignSelf: "center"
+        alignSelf: "center",
+        color: "white",
     },
     dataLabel: {
         fontWeight: "500",
+        color: "white",
     },
     dataText: {
-        fontSize: 14
+        fontSize: 14,
+        color: "white",
     },
     dataContainer: {
         padding: 30,

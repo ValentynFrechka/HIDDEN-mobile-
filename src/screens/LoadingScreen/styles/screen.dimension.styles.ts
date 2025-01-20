@@ -18,8 +18,9 @@ const loadingScreenDimensionStyles = StyleSheet.create({
         zIndex: 1,
         elevation: 1,
         textAlign: "center",
-        width: screenDims.width * 0.25,
-        fontSize: 14
+        width: screenDims.width * 0.27,
+        fontSize: 18,
+        color: "white"
     },
     doneIcon: {
         width: 60,
@@ -40,7 +41,7 @@ const loadingScreenDimensionStyles = StyleSheet.create({
 
 const circleProps = {
     size: screenDims.width * 0.6,
-    color: "rgb(222, 222, 222)",
+    color: "rgb(115,115,155)",
     strokeCap: "round",
     indeterminate: true,
     indeterminateAnimationDuration: 3000,

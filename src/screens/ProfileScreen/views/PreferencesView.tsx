@@ -1,11 +1,16 @@
 import { View, Text, TouchableOpacity, Switch } from "react-native";
 import profileScreenStyles from "../styles/profileScreen.styles";
-import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
+import { useIsFocused, useNavigation } from "@react-navigation/native";
+import { useEffect, useState } from "react";
 
 const PreferencesView = () => {
     const navigation = useNavigation();
+    const isFocused = useIsFocused();
     const [isNightModeEnabled, setNightModeEnabled] = useState(false);
+
+    useEffect(() => {
+        if (!isFocused) navigation.goBack();
+    }, [isFocused])
 
     const toggleNightMode = () => {
         setNightModeEnabled(!isNightModeEnabled);

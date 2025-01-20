@@ -8,38 +8,45 @@ const HomeScreen = () => {
 
     return (
         <>
-        <View style={homeScreenDimensionStyles.verticalContainer}>
+        <View style={homeScreenDimensionStyles.container}>
             <TouchableOpacity
                 style={homeScreenDimensionStyles.treeImageContainer}
                 onPress={() => setModalVisible(true)}
             />
-            <View style={homeScreenDimensionStyles.statContainer}>
-                <View style={homeScreenDimensionStyles.statSubcontainer}>
-                    <View style={homeScreenDimensionStyles.statIcon}></View>
-                    <Text style={homeScreenDimensionStyles.statText}>320</Text>
+
+            <View style={homeScreenDimensionStyles.verticalContainer}>
+                <View style={homeScreenDimensionStyles.statVerticalContainer}>
+                    <Text style={homeScreenDimensionStyles.statTitle}>Token statistics:</Text>
+
+                    <View style={homeScreenDimensionStyles.statsContainer}>
+                        <View style={homeScreenDimensionStyles.statSubcontainer}>
+                            <View style={homeScreenDimensionStyles.statIcon}></View>
+                            <Text style={homeScreenDimensionStyles.statText}>320</Text>
+                        </View>
+                        
+                        <View style={homeScreenDimensionStyles.statSubcontainer}>
+                            <View style={homeScreenDimensionStyles.statIcon}></View>
+                            <Text style={homeScreenDimensionStyles.statText}>240</Text>
+                        </View>
+                    </View>
                 </View>
-                
-                <View style={homeScreenDimensionStyles.statSubcontainer}>
-                    <View style={homeScreenDimensionStyles.statIcon}></View>
-                    <Text style={homeScreenDimensionStyles.statText}>240</Text>
+
+                <View style={homeScreenDimensionStyles.actionContainer}>
+                    <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
+                        <View style={homeScreenDimensionStyles.actionIcon}></View>
+                        <Text style={homeScreenDimensionStyles.actionText}>Water my tree</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
+                        <View style={homeScreenDimensionStyles.actionIcon}></View>
+                        <Text style={homeScreenDimensionStyles.actionText}>Feed my tree</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
+                        <View style={homeScreenDimensionStyles.actionIcon}></View>
+                        <Text style={homeScreenDimensionStyles.actionText}>Care for my tree</Text>
+                    </TouchableOpacity>
                 </View>
-            </View>
-
-            <View style={homeScreenDimensionStyles.actionContainer}>
-                <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
-                    <View style={homeScreenDimensionStyles.actionIcon}></View>
-                    <Text>Water my tree</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
-                    <View style={homeScreenDimensionStyles.actionIcon}></View>
-                    <Text>Feed my tree</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
-                    <View style={homeScreenDimensionStyles.actionIcon}></View>
-                    <Text>Care for my tree</Text>
-                </TouchableOpacity>
             </View>
         </View>
 

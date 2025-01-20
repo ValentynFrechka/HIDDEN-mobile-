@@ -6,11 +6,10 @@ const screenDims = Dimensions.get("screen");
 const profileScreenStyles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "rgb(112, 21, 182)",
+        ...globalDimensionStyles.topProfileButtonPadding,
     },
     verticalContainer: {
         marginHorizontal: screenDims.width * 0.1,
-        marginVertical: screenDims.width * 0.05,
         flexDirection: "column",
         rowGap: 30,
         alignContent: "stretch",

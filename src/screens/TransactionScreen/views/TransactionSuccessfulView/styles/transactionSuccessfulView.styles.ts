@@ -18,6 +18,7 @@ const transactionSuccessfulViewStyles = StyleSheet.create({
     title: {
         textAlign: "center",
         fontSize: 20,
+        color: "white",
     },
     successIcon: {
         width: 50,
