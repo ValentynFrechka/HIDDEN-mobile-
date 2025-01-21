@@ -1,0 +1,11 @@
+import WaterActionIcon from "../../assets/icons/homeScreen/action-icons/water-action-icon.svg";
+import FeedActionIcon from "../../assets/icons/homeScreen/action-icons/feed-action-icon.svg";
+import CareActionIcon from "../../assets/icons/homeScreen/action-icons/care-action-icon.svg";
+
+export const HomeScreenIcons = {
+    WaterActionIcon: WaterActionIcon,
+    FeedActionIcon: FeedActionIcon,
+    CareActionIcon: CareActionIcon,
+    leafStatIcon: require("../../assets/icons/homeScreen/stat-icons/leaf-stat-icon.png"),
+    tokenStatIcon: require("../../assets/icons/homeScreen/stat-icons/token-stat-icon.png"),
+};

@@ -9,8 +9,10 @@ const homeScreenModalStyles = StyleSheet.create({
     },
     window: {
         width: "70%",
-        backgroundColor: "rgba(255,255,255,0.2)",
-        borderRadius: 5,
+        backgroundColor: "rgba(255,255,255,0.1)",
+        borderRadius: 10,
+        borderWidth: 0.3,
+        borderColor: "white",
     },
     closeButtonContainer: {
         alignItems: "flex-end",

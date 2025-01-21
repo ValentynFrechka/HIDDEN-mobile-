@@ -1,7 +1,11 @@
-import { TouchableOpacity, View, Text, Modal, TouchableWithoutFeedback } from "react-native";
+import { TouchableOpacity, View, Text, Modal, Image } from "react-native";
 import homeScreenDimensionStyles from "./styles/screen.dimension.styles";
 import { useState } from "react";
 import homeScreenModalStyles from "./styles/screen.modal.styles";
+import { HomeScreenIcons } from "../../icons/HomeScreen.icons";
+import { FitImage } from "../../components/FitImage/FitImage";
+import LinearGradient from "react-native-linear-gradient";
+import { BlurryGradient } from "../../components/BlurryGradient";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
@@ -12,38 +16,47 @@ const HomeScreen = () => {
             <TouchableOpacity
                 style={homeScreenDimensionStyles.treeImageContainer}
                 onPress={() => setModalVisible(true)}
-            />
+            >
+                <Image style={{height: "100%"}} source={require("../../../assets/tree-image-example.png")}></Image>
+
+            </TouchableOpacity>
 
             <View style={homeScreenDimensionStyles.verticalContainer}>
-                <View style={homeScreenDimensionStyles.statVerticalContainer}>
-                    <Text style={homeScreenDimensionStyles.statTitle}>Token statistics:</Text>
+                <BlurryGradient style={homeScreenDimensionStyles.statGradient}>
+                    <View style={homeScreenDimensionStyles.statVerticalContainer}>
+                        <Text style={homeScreenDimensionStyles.statTitle}>Token statistics:</Text>
 
-                    <View style={homeScreenDimensionStyles.statsContainer}>
-                        <View style={homeScreenDimensionStyles.statSubcontainer}>
-                            <View style={homeScreenDimensionStyles.statIcon}></View>
-                            <Text style={homeScreenDimensionStyles.statText}>320</Text>
-                        </View>
-                        
-                        <View style={homeScreenDimensionStyles.statSubcontainer}>
-                            <View style={homeScreenDimensionStyles.statIcon}></View>
-                            <Text style={homeScreenDimensionStyles.statText}>240</Text>
+                        <View style={homeScreenDimensionStyles.statsContainer}>
+                            <View style={homeScreenDimensionStyles.statSubcontainer}>
+                                <View style={homeScreenDimensionStyles.statIcon}>
+                                    <FitImage src={HomeScreenIcons.leafStatIcon} />
+                                </View>
+                                <Text style={homeScreenDimensionStyles.statText}>320</Text>
+                            </View>
+                            
+                            <View style={homeScreenDimensionStyles.statSubcontainer}>
+                                <View style={homeScreenDimensionStyles.statIcon}>
+                                    <FitImage src={HomeScreenIcons.tokenStatIcon} />
+                                </View>
+                                <Text style={homeScreenDimensionStyles.statText}>240</Text>
+                            </View>
                         </View>
                     </View>
-                </View>
+                </BlurryGradient>
 
                 <View style={homeScreenDimensionStyles.actionContainer}>
                     <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
-                        <View style={homeScreenDimensionStyles.actionIcon}></View>
+                        <HomeScreenIcons.WaterActionIcon style={homeScreenDimensionStyles.actionIcon} />
                         <Text style={homeScreenDimensionStyles.actionText}>Water my tree</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
-                        <View style={homeScreenDimensionStyles.actionIcon}></View>
+                        <HomeScreenIcons.FeedActionIcon style={homeScreenDimensionStyles.actionIcon} />
                         <Text style={homeScreenDimensionStyles.actionText}>Feed my tree</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={homeScreenDimensionStyles.actionSubcontainer}>
-                        <View style={homeScreenDimensionStyles.actionIcon}></View>
+                        <HomeScreenIcons.CareActionIcon style={homeScreenDimensionStyles.actionIcon} />
                         <Text style={homeScreenDimensionStyles.actionText}>Care for my tree</Text>
                     </TouchableOpacity>
                 </View>
@@ -57,7 +70,8 @@ const HomeScreen = () => {
             onRequestClose={() => setModalVisible(false)}
         >
             <View style={homeScreenModalStyles.overlay}>
-                <View style={homeScreenModalStyles.window}>
+                <BlurryGradient style={homeScreenModalStyles.window}
+                >
                     <View style={homeScreenModalStyles.closeButtonContainer}>
                         <TouchableOpacity 
                             style={homeScreenModalStyles.closeButton} 
@@ -82,7 +96,7 @@ const HomeScreen = () => {
                             <Text style={homeScreenModalStyles.dataLabel}>Other service information</Text>
                         </View>
                     </View>
-                </View>
+                </BlurryGradient>
             </View>
         </Modal>
         </>

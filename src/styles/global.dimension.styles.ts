@@ -23,7 +23,7 @@ const globalDimensionStyles = StyleSheet.create({
         width: profileButtonDimensions.size, 
         marginTop: profileButtonDimensions.marginTop,
         marginBottom: profileButtonDimensions.marginBottom,
-        marginHorizontal: profileButtonDimensions.marginHorizontal
+        marginHorizontal: profileButtonDimensions.marginHorizontal,
     },
     topProfileButtonPadding: {
         paddingTop: profileButtonDimensions.marginTop + profileButtonDimensions.marginBottom + profileButtonDimensions.size
