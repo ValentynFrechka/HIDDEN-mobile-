@@ -19,16 +19,15 @@ const challengesViewStyles = StyleSheet.create({
     yourStreakContainer: {
         flexDirection: "row",
         alignItems: "center",
-        columnGap: 4,
+        columnGap: 6,
     },
     fireIcon: {
         width: 18,
         height: 18,
-        backgroundColor: "red",
     },
     yourStreakText: {
         color: "white",
-        fontSize: 14,
+        fontSize: 16,
     },
     challengesList: {
         flexDirection: "column",

@@ -1,14 +1,16 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { ChallengeProgress } from "./types/ChallengeProgress";
 import * as Progress from "react-native-progress";
-import { challengeStyles, progressBarParams } from "./styles/challenge.styles";
+import challengeStyles from "./styles/challenge.styles";
+import { Gradient } from "../../../../../../components/Gradient";
 
 type ChallengeProps = {
     text: string
     progress: ChallengeProgress
+    reward: number
 };
 
-const Challenge: React.FC<ChallengeProps> = ({ text, progress }) => {
+const Challenge: React.FC<ChallengeProps> = ({ text, progress, reward }) => {
 
     const renderButtons = () => {
         if (progress.done === progress.outOf) {
@@ -34,10 +36,13 @@ const Challenge: React.FC<ChallengeProps> = ({ text, progress }) => {
             </View>
             
             <View style={challengeStyles.progressBarContainer}>
-                <Progress.Bar {...progressBarParams.outer} />
-                <Progress.Bar progress={1.0} {...progressBarParams.inner} style={{zIndex: 2, position: "absolute", width: `${progress.done/progress.outOf * 100}%`}}/>
+                <View>
+                    <Gradient style={challengeStyles.outerProgressBar} />
+                </View>
+                <Gradient style={[challengeStyles.innerProgressBar, {width: `${progress.done/progress.outOf * 100}%`}]} />
             </View>
 
+            <Text style={challengeStyles.rewardText}>{reward} tokens</Text>
 
             {renderButtons()}
         </View>

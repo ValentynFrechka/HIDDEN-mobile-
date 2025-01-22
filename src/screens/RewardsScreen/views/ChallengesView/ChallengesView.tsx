@@ -4,6 +4,7 @@ import { EWeekDay } from "./components/StreakBar/enum/EWeekDay";
 import StreakBar from "./components/StreakBar/StreakBar";
 import { challengesDataMock } from "./mocks/challengesDataMock";
 import Challenge from "./components/Challenge/Challenge";
+import { RewardsScreenIcons } from "../../../../icons/RewardsScreen.icons";
 
 
 const ChallengesView = () => {
@@ -15,9 +16,7 @@ const ChallengesView = () => {
                 <View style={challengesViewStyles.container}>
                     <View style={challengesViewStyles.streakInfoContainer}>
                         <View style={challengesViewStyles.yourStreakContainer}>
-                            <View style={challengesViewStyles.fireIcon}>
-
-                            </View>
+                            <RewardsScreenIcons.StreakIcon style={challengesViewStyles.fireIcon} />
 
                             <Text style={challengesViewStyles.yourStreakText}>Your daily streak:</Text>
                         </View>
@@ -40,6 +39,7 @@ const ChallengesView = () => {
                                         key={index}
                                         text={challenge.text}
                                         progress={challenge.progress}
+                                        reward={challenge.reward}
                                     />
                                 ))}
                             </View>
@@ -53,6 +53,7 @@ const ChallengesView = () => {
                                         key={index}
                                         text={challenge.text}
                                         progress={challenge.progress}
+                                        reward={challenge.reward}
                                     />
                                 ))}
                             </View>

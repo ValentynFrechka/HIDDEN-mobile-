@@ -4,6 +4,7 @@ import { useTransactionFormValueContext } from "../../contexts/TransactionFormVa
 import { useTransactionViewContext } from "../../contexts/TransactionViewContext";
 import { ETransactionView } from "../../enum/ETransactionView";
 import { ETransactionFormKeys } from "../../enum/ETransactionFormKeys";
+import UserBalanceInfo from "../../components/UserBalanceInfo/UserBalanceInfo";
 
 
 const TransactionConfirmationView = () => {
@@ -41,6 +42,8 @@ const TransactionConfirmationView = () => {
                     <Text style={transactionConfirmationViewStyles.infoLabel}>{transactionFormValues.amount} tokens</Text>
                 </View>
             </View>
+
+            <UserBalanceInfo balance={320} />
 
             <View style={transactionConfirmationViewStyles.buttonContainer}>
                 <View style={transactionConfirmationViewStyles.buttonWrap}>

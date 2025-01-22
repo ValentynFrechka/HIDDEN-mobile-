@@ -66,7 +66,7 @@ export default function App() {
                                 },
                                 headerTransparent: true,
                                 header: () => (
-                                    <View style={{ alignItems: "flex-end" }}>
+                                    <View style={{ alignItems: "flex-end", padding: 8 }}>
                                         <TouchableOpacity style={globalStyles.profileButton} onPress={() => navigation.navigate(SCREEN_NAMES.PROFILE)}>
                                             <FitImage src={require("../assets/icons/navigationBar/profile-icon.png")}/>
                                         </TouchableOpacity>

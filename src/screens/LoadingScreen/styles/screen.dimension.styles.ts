@@ -25,7 +25,6 @@ const loadingScreenDimensionStyles = StyleSheet.create({
     doneIcon: {
         width: 60,
         height: 60,
-        backgroundColor: "red"
     },
     doneTitle: {
         textAlign: "center",

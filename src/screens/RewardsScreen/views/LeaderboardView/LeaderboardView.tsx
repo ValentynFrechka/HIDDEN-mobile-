@@ -10,7 +10,7 @@ const LeaderboardView = () => {
         <View style={leaderboardViewStyles.container}>
             <Text style={leaderboardViewStyles.title}>My community</Text>
 
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 {leaderboardDataMock.map((user) => (
                     <LeaderboardRow
                         key={user.rank}

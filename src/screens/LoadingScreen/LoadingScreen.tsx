@@ -6,6 +6,7 @@ import { useLoadingStateUtil } from "../../util/loadingStateUtil";
 import { loadingScreenDimensionStyles, circleProps } from "./styles/screen.dimension.styles"
 import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "../../styles/global.dimension.styles";
+import { LoadingScreenIcons } from "../../icons/LoadingScreen.icons";
 
 type LoadingScreenProps = {
     initialLoadingState: ELoading.linking | ELoading.activating | ELoading.signingIn | ELoading.done,
@@ -37,7 +38,9 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ initialLoadingState, onLo
     else {
         return (
             <View style={loadingScreenDimensionStyles.container}>
-                <View style={loadingScreenDimensionStyles.doneIcon}></View>
+                <View style={loadingScreenDimensionStyles.doneIcon}>
+                    <LoadingScreenIcons.CongratulationsIcon width={"100%"} height={"100%"} />
+                </View>
                 <Text style={loadingScreenDimensionStyles.doneTitle}>Congrats!</Text>
                 <Text style={loadingScreenDimensionStyles.doneText}>
                     You’ve successfully signed in to your account!

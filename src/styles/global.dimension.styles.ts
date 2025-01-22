@@ -2,12 +2,12 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const screenDims = Dimensions.get("screen");
 
-const profileButtonSize = 40;
+const profileButtonSize = 32;
 const profileButtonDimensions = {
     size: profileButtonSize,
     marginTop: profileButtonSize,
     marginBottom: profileButtonSize / 2,
-    marginHorizontal: profileButtonSize / 1.5
+    marginHorizontal: profileButtonSize / 2
 }
 
 const globalDimensionStyles = StyleSheet.create({
@@ -27,7 +27,7 @@ const globalDimensionStyles = StyleSheet.create({
     },
     topProfileButtonPadding: {
         paddingTop: profileButtonDimensions.marginTop + profileButtonDimensions.marginBottom + profileButtonDimensions.size
-    }
+    },
 });
 
 export default globalDimensionStyles;

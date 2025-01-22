@@ -4,24 +4,6 @@ const screenDims = Dimensions.get("screen");
 const circleSize = screenDims.width * 0.1;
 const bigCircleSize = circleSize * 2;
 
-const progressBarParams = {
-    outer: {
-        width: null,
-        height: screenDims.width * 0.04,
-        borderRadius: screenDims.width * 0.04,
-        borderWidth: 2,
-        color: "rgb(186, 177, 202)",
-        borderColor: "rgb(186, 177, 202)",
-    },
-    inner: {
-        width: null,
-        height: screenDims.width * 0.04,
-        borderRadius: screenDims.width * 0.04,
-        borderWidth: 2,
-        color: "rgb(186, 177, 202)",
-        borderColor: "rgb(186, 177, 202)",
-    }
-};
 
 const challengeStyles = StyleSheet.create({
     verticalContainer: {
@@ -33,7 +15,7 @@ const challengeStyles = StyleSheet.create({
         justifyContent: "space-between",
     },
     text: {
-        fontSize: 12,
+        fontSize: 14,
         color: "white"
     },
     buttonContainer: {
@@ -60,8 +42,24 @@ const challengeStyles = StyleSheet.create({
         fontSize: 10,
     },
     progressBarContainer: {
-    }
+
+    },
+    innerProgressBar: {
+        zIndex: 2, 
+        position: "absolute",
+        height: 4,
+        borderRadius: 1,
+    },
+    outerProgressBar: {
+        height: 4,
+        opacity: 0.3,
+        borderRadius: 1,
+    },
+    rewardText: {
+        fontSize: 11,
+        color: "white"
+    },
     
 });
 
-export { challengeStyles, progressBarParams };
+export default challengeStyles;

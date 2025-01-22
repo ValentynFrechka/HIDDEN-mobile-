@@ -1,7 +1,8 @@
-import { View, Text, TextInput, Button } from "react-native";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import transactionFormViewStyles from "./styles/transactionFormView.styles";
 import { useTransactionFormValueContext } from "../../contexts/TransactionFormValuesContext";
 import { ETransactionFormKeys } from "../../enum/ETransactionFormKeys";
+import UserBalanceInfo from "../../components/UserBalanceInfo/UserBalanceInfo";
 
 const TransactionFormView = () => {
     const { transactionFormValues, setTransactionFormValues, handleSubmit } = useTransactionFormValueContext();
@@ -10,30 +11,42 @@ const TransactionFormView = () => {
         <View style={transactionFormViewStyles.verticalContainer}>
             <Text style={transactionFormViewStyles.title}>Send tokens</Text>
 
-            <View style={transactionFormViewStyles.inputsContainer}>
-                <TextInput 
-                    style={transactionFormViewStyles.inputField}
-                    value={transactionFormValues.recipientId}
-                    onChangeText={(value) => setTransactionFormValues(ETransactionFormKeys.recipientId, value)}
-                />
+            <View style={transactionFormViewStyles.formContainer}>
+                <View style={transactionFormViewStyles.fieldBalanceContainer}>
+                    <View style={transactionFormViewStyles.inputFieldsContainer}>
+                        <TextInput 
+                            style={transactionFormViewStyles.inputField}
+                            value={transactionFormValues.recipientId}
+                            placeholder="Recipient ID"
+                            placeholderTextColor={"rgba(255,255,255,0.5)"}
+                            autoCorrect={false}
+                            autoCapitalize="none"
+                            inputMode="numeric"
+                            onChangeText={(value) => setTransactionFormValues(ETransactionFormKeys.recipientId, value)}
+                        />
 
-                <TextInput 
-                    style={transactionFormViewStyles.inputField}
-                    value={transactionFormValues.amount}
-                    onChangeText={(value) => setTransactionFormValues(ETransactionFormKeys.amount, value)}
-                />
+                        <TextInput 
+                            style={transactionFormViewStyles.inputField}
+                            value={transactionFormValues.amount}
+                            placeholder="Amount"
+                            placeholderTextColor={"rgba(255,255,255,0.5)"}
+                            autoCorrect={false}
+                            autoCapitalize="none"
+                            onChangeText={(value) => setTransactionFormValues(ETransactionFormKeys.amount, value)}
+                        />
+                    </View>
 
-                <View style={transactionFormViewStyles.balanceContainer}>
-                    <View style={transactionFormViewStyles.balanceIcon}/>
-                    <Text style={transactionFormViewStyles.balanceLabel}>Your balance: 240 tokens</Text>
+                    <UserBalanceInfo balance={320} />
                 </View>
-            </View>
 
-            <View style={transactionFormViewStyles.nextButtonContainer}>
-                <Button 
-                    title="Next"
-                    onPress={handleSubmit}
-                />
+                <View style={transactionFormViewStyles.nextButtonContainer}>
+                    <TouchableOpacity
+                        style={transactionFormViewStyles.nextButton}
+                        onPress={handleSubmit}
+                    >
+                        <Text style={transactionFormViewStyles.nextText}>Next</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );

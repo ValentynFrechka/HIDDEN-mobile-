@@ -6,6 +6,6 @@ export const HomeScreenIcons = {
     WaterActionIcon: WaterActionIcon,
     FeedActionIcon: FeedActionIcon,
     CareActionIcon: CareActionIcon,
-    leafStatIcon: require("../../assets/icons/homeScreen/stat-icons/leaf-stat-icon.png"),
-    tokenStatIcon: require("../../assets/icons/homeScreen/stat-icons/token-stat-icon.png"),
+    leafStatIcon: require("../../assets/icons/general/leaf-icon.png"),
+    tokenStatIcon: require("../../assets/icons/general/token-icon.png"),
 };

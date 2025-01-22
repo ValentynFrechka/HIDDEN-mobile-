@@ -5,50 +5,61 @@ const screenDims = Dimensions.get("screen");
 const transactionFormViewStyles = StyleSheet.create({
     verticalContainer: {
         flex: 1,
-        marginHorizontal: screenDims.width * 0.15,
+        marginHorizontal: screenDims.width * 0.21,
+        marginVertical: screenDims.height * 0.04,
         flexDirection: "column",
-        rowGap: 30,
+        rowGap: 40,
         justifyContent: "flex-start",
-        alignItems: "center",
+        alignItems: "stretch",
     },
-    inputsContainer: {
+    formContainer: {
+        flexDirection: "column",
+        rowGap: 20
+    },
+    fieldBalanceContainer: {
         alignSelf: "stretch",
         flexDirection: "column",
-        rowGap: 20,
+        rowGap: 12,
+        alignItems: "stretch",
+    },
+    inputFieldsContainer: {
+        alignSelf: "stretch",
+        flexDirection: "column",
+        rowGap: 16,
         alignItems: "stretch",
     },
     title: {
         textAlign: "center",
-        fontSize: 20,
+        fontSize: 18,
         color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "600",
     },
     inputField: {
         borderWidth: 1,
         borderColor: "white",
-        borderRadius: 2,
-        padding: 12,
-        fontSize: 18,
-        textAlignVertical: "center",
-        color: "white",
-    },
-    balanceContainer: {
-        alignSelf: "stretch",
-        flexDirection: "row",
-        columnGap: 5,
-        alignItems: "center",
-    },
-    balanceIcon: {
-        width: 15,
-        height: 15,
-        backgroundColor: "red"
-    },
-    balanceLabel: {
-        fontSize: 14,
+        borderRadius: 120,
+        paddingHorizontal: 16,
+        paddingVertical: 13,
+        fontSize: 16,
+        fontFamily: "ManropeRegular",
         textAlignVertical: "center",
         color: "white",
     },
     nextButtonContainer: {
         alignSelf: "stretch"
+    },
+    nextButton: {
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "white",
+        paddingVertical: 12,
+        borderRadius: 120,
+    },
+    nextText: {
+        fontSize: 12,
+        fontFamily: "Manrope-Regular",
+        fontWeight: "800"
     },
 });
 

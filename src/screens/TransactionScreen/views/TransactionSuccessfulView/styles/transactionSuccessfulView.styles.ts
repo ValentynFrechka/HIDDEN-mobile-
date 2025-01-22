@@ -21,12 +21,21 @@ const transactionSuccessfulViewStyles = StyleSheet.create({
         color: "white",
     },
     successIcon: {
-        width: 50,
-        height: 50,
-        backgroundColor: "red"
+        width: 45,
+        height: 45,
     },
     returnButton: {
-        width: screenDims.width * 0.5
+        width: screenDims.width * 0.6,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "white",
+        paddingVertical: 8,
+        borderRadius: 120,
+    },
+    returnText: {
+        fontSize: 12,
+        fontFamily: "Manrope-Regular",
+        fontWeight: "800"
     },
 });
 
