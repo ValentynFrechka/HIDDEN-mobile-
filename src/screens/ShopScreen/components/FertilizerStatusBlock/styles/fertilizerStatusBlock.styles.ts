@@ -9,7 +9,7 @@ const fertilizerStatusBlockStyles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 18,
         borderRadius: 12,
-        backgroundColor: "rgb(164, 140, 184)",
+        backgroundColor: "rgba(255,255,255,0.2)",
     },
     verticalContainer: {
         flexDirection: "column",
@@ -19,12 +19,12 @@ const fertilizerStatusBlockStyles = StyleSheet.create({
     icon: {
         width: 25,
         height: 25,
-        backgroundColor: "red"
     },
     amountText: {
-        fontWeight: "bold",
-        fontSize: 15,
+        fontSize: 14,
         color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "800",
     },
 });
 

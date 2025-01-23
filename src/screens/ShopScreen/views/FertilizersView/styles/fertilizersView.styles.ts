@@ -29,26 +29,31 @@ const fertilizersViewStyles = StyleSheet.create({
         paddingVertical: 10,
         flexDirection: "row",
         justifyContent: "flex-start",
+        alignItems: "center",
         columnGap: 6,
     },
     horizontalBalanceContainer: {
         flex: 1,
         flexDirection: "row",
         justifyContent: "flex-start",
+        alignItems: "center",
         columnGap: 4,
     },
     yourBalanceText: {
         fontSize: 14,
-        color: "white"
+        color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "500",
     },
     leafIcon: {
-        width: 15,
-        height: 15,
-        backgroundColor: "red",
+        width: 18,
+        height: 18,
     },
     balance: {
-        fontSize: 15,
+        fontSize: 16,
         color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "600",
     },
     statusView: {
         flexDirection: "row",

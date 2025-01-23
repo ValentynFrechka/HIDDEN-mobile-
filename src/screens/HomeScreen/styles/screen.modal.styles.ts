@@ -21,7 +21,6 @@ const homeScreenModalStyles = StyleSheet.create({
         margin: 10,
         width: 25,
         height: 25,
-        backgroundColor: "red",
     },
     title: {
         fontSize: 18,

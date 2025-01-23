@@ -24,6 +24,8 @@ const tabbedViewStyles = StyleSheet.create({
     tabText: {
         fontSize: 16,
         color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "600",
     },
     contentContainer: {
         flex: 1,

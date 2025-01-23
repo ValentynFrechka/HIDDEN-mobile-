@@ -1,13 +1,15 @@
-import { View, Text } from "react-native";
+import { View, Text, ImageSourcePropType } from "react-native";
 import FertilizersShopRow from "../../components/FertilizersShopRow/FertilizersShopRow";
 import { FertilizersDataProvider } from "../../providers/FertilizersDataProvider";
 import { useState } from "react";
 import FertilizerStatusBlock from "../../components/FertilizerStatusBlock/FertilizerStatusBlock";
 import fertilizersViewStyles from "./styles/fertilizersView.styles";
+import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
+import { FitImage } from "../../../../components/FitImage/FitImage";
 
 type FertilizerStat = {
     [name: string]: {
-        iconPath: string;
+        iconSrc: ImageSourcePropType;
         amount: number;
     };
 };
@@ -24,7 +26,7 @@ const FertilizersView = () => {
     const [fertilizerStats, setFertilizerStats] = useState<FertilizerStat>(
         fertilizersDataProvider.fertilizers.reduce ((acc, fertilizer) => {
             acc[fertilizer.name] = {
-                iconPath: fertilizer.iconPath,
+                iconSrc: fertilizer.iconSrc,
                 amount: getFertilizerAmountStat(fertilizer.name)
             };
             return acc;
@@ -39,7 +41,7 @@ const FertilizersView = () => {
                         {fertilizersDataProvider.fertilizers.map((fertilizer) => (
                             <FertilizersShopRow
                                 key={fertilizer.name} 
-                                iconPath={fertilizer.iconPath} 
+                                iconSrc={fertilizer.iconSrc} 
                                 name={fertilizer.name} 
                                 description={(fertilizer.description ? fertilizer.description : undefined)}
                                 price={fertilizer.price}                        
@@ -52,7 +54,7 @@ const FertilizersView = () => {
                         
                         <View style={fertilizersViewStyles.horizontalBalanceContainer}>
                             <View style={fertilizersViewStyles.leafIcon}>
-
+                                <FitImage src={ShopScreenIcons.leafIcon} />
                             </View>
 
                             <Text style={fertilizersViewStyles.balance}>{balance}</Text>
@@ -64,7 +66,7 @@ const FertilizersView = () => {
                     {Object.keys(fertilizerStats).map((key) => (
                         <FertilizerStatusBlock
                             key={key} 
-                            iconPath={fertilizerStats[key].iconPath}
+                            iconSrc={fertilizerStats[key].iconSrc}
                             amount={fertilizerStats[key].amount}                       
                         />
                     ))}

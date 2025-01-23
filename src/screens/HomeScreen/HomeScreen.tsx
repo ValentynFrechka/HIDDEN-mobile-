@@ -76,7 +76,9 @@ const HomeScreen = () => {
                         <TouchableOpacity 
                             style={homeScreenModalStyles.closeButton} 
                             onPress={() => setModalVisible(false)}
-                        />
+                        >
+                            <HomeScreenIcons.CrossIcon width={"100%"} height={"100%"} />
+                        </TouchableOpacity>
                     </View>
 
                     <Text style={homeScreenModalStyles.title}>Tree information</Text>

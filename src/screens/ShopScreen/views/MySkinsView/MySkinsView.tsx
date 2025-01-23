@@ -6,6 +6,7 @@ import { useState } from "react";
 import { EShopView } from "../../enum/EShopView";
 import { useTabbedViewContext } from "../../../../components/TabbedView/TabbedViewContext";
 import { EViewContext } from "../../../../enum/EViewContext";
+import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
 
 const MySkinsView = () => {
     const skinsDataProvider = TreeSkinsDataProvider.instance;
@@ -16,7 +17,7 @@ const MySkinsView = () => {
     const handleBuySkinPress = () => {
         setView(EShopView.skins);
         setHasSkins(true); // Debug action to simulate user buys skins
-    }
+    };
 
     if (hasSkins) {
         return (
@@ -24,26 +25,35 @@ const MySkinsView = () => {
                 <ScrollView>
                     <View style={mySkinsViewStyles.container}>
                         <View style={mySkinsViewStyles.twoColumnContainer}>
-                            {skinsDataProvider.mySkinsMock.map((skin, index) => (
-                                <TreeSkinBlock 
-                                    key={index}
-                                    name={skin.name}
-                                />
-                            ))}
+                            {skinsDataProvider.mySkinsMock.map(
+                                (skin, index) => (
+                                    <TreeSkinBlock
+                                        key={index}
+                                        imageSrc={
+                                            ShopScreenIcons.treeExampleImage
+                                        }
+                                        name={skin.name}
+                                    />
+                                )
+                            )}
                         </View>
-                        <Button /* Debug */ onPress={() => {setHasSkins(false)}} title="Remove skins"></Button>
+                        <Button
+                            /* Debug */ onPress={() => {
+                                setHasSkins(false);
+                            }}
+                            title="Remove skins"
+                        ></Button>
                     </View>
                 </ScrollView>
             </View>
         );
-    }
-    else {
+    } else {
         return (
             <View style={mySkinsViewStyles.container}>
                 <View style={mySkinsViewStyles.verticalSubcontainer}>
                     <View style={mySkinsViewStyles.infoSubcontainer}>
-                        <View style={mySkinsViewStyles.crossIcon}>
-
+                        <View style={mySkinsViewStyles.sadfaceIcon}>
+                            <ShopScreenIcons.SadfaceIcon width={"100%"} height={"100%"} />
                         </View>
 
                         <View style={mySkinsViewStyles.textSubcontainer}>
@@ -57,8 +67,13 @@ const MySkinsView = () => {
                         </View>
                     </View>
 
-                    <TouchableOpacity style={mySkinsViewStyles.buySkinButton} onPress={handleBuySkinPress}>
-                        <Text style={mySkinsViewStyles.buySkinText}>Buy a skin</Text>
+                    <TouchableOpacity
+                        style={mySkinsViewStyles.buySkinButton}
+                        onPress={handleBuySkinPress}
+                    >
+                        <Text style={mySkinsViewStyles.buySkinText}>
+                            Buy a skin
+                        </Text>
                     </TouchableOpacity>
                 </View>
             </View>

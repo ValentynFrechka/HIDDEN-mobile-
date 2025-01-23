@@ -16,8 +16,10 @@ const profileScreenStyles = StyleSheet.create({
     },
     title: {
         textAlign: "center",
-        fontSize: 20,
+        fontSize: 16,
         color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "500",
     },
     optionsContainer: {
         flexDirection: "column",
@@ -26,21 +28,27 @@ const profileScreenStyles = StyleSheet.create({
     optionContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "center",
         paddingVertical: 14,
     },
     optionInfoSubcontainer: {
         flexDirection: "row",
-        columnGap: 6
+        columnGap: 8,
     },
     optionIcon: {
-        width: 16,
-        height: 16,
-        backgroundColor: "red"
+        width: 22,
+        height: 22,
     },
     optionText: {
-        fontSize: 14,
+        fontSize: 16,
         color: "white",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "500",
     },
+    navigationArrow: {
+        width: 12,
+        height: 12,
+    }
 });
 
 export default profileScreenStyles;

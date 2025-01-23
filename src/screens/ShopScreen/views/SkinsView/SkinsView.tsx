@@ -2,6 +2,8 @@ import { View, Text, ScrollView } from "react-native";
 import skinsViewStyles from "./styles/skinsView.styles";
 import { TreeSkinsDataProvider } from "../../providers/TreeSkinsDataProvider";
 import TreeSkinBlock from "../../components/TreeSkinBlock/TreeSkinBlock";
+import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
+import { FitImage } from "../../../../components/FitImage/FitImage";
 
 const SkinsView = () => {
     const skinsDataProvider = TreeSkinsDataProvider.instance;
@@ -15,12 +17,25 @@ const SkinsView = () => {
                             <TreeSkinBlock 
                                 key={index}
                                 name={skin.name}
+                                imageSrc={ShopScreenIcons.treeExampleImage}
                                 price={skin.price}
                             />
                         ))}
                     </View>
                 </View>
             </ScrollView>
+
+            <View style={skinsViewStyles.yourBalanceContainer}>
+                <Text style={skinsViewStyles.yourBalanceText}>Your current balance:</Text>
+                
+                <View style={skinsViewStyles.horizontalBalanceContainer}>
+                    <View style={skinsViewStyles.leafIcon}>
+                        <FitImage src={ShopScreenIcons.leafIcon} />
+                    </View>
+
+                    <Text style={skinsViewStyles.balance}>320</Text>
+                </View>
+            </View>
         </View>
     )
 };

@@ -9,12 +9,16 @@ const rewardsModalStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
-    window: {
+    gradient: {
         width: screenDims.width * 0.6,
+        borderWidth: 0.3,
+        borderRadius: 12,
+        borderColor: "white",
+    },
+    window: {
+        width: "100%",
         paddingVertical: 16,
         paddingHorizontal: 24,
-        backgroundColor: "rgba(133, 90, 171, 0.94)",
-        borderRadius: 5,
         alignItems: "center",
         padding: screenDims.width * 0.05
     },
@@ -27,7 +31,6 @@ const rewardsModalStyle = StyleSheet.create({
     icon: {
         width: 50,
         height: 50,
-        backgroundColor: "red",
     },
     textContainer: {
         flexDirection: "column",
@@ -36,25 +39,30 @@ const rewardsModalStyle = StyleSheet.create({
         justifyContent: "center"
     },
     title: {
-        fontSize: 21,
+        fontSize: 18,
         color: "white",
         textAlign: "center",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "600",
     },
     description: {
         fontSize: 14,
         color: "white",
         textAlign: "center",
         textAlignVertical: "center",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "500",
     },
     shareButton: {
         paddingVertical: screenDims.width * 0.02,
         paddingHorizontal: screenDims.width * 0.02,
-        backgroundColor: "rgb(220, 120, 253)",
+        backgroundColor: "white",
         borderRadius: screenDims.width * 0.03,
     },
     shareText: {
-        fontSize: 12,
-        fontWeight: "bold"
+        fontSize: 10,
+        fontFamily: "Manrope-Regular",
+        fontWeight: "800",
     },
     closeButtonContainer: {
         position: "absolute",
@@ -62,9 +70,8 @@ const rewardsModalStyle = StyleSheet.create({
     },
     closeButton: {
         margin: 16,
-        backgroundColor: "red",
-        width: 20,
-        height: 20,
+        width: 24,
+        height: 24,
     }
 });
 

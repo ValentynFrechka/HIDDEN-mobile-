@@ -3,14 +3,18 @@ import { Dimensions, StyleSheet } from "react-native";
 const screenDims = Dimensions.get("screen");
 
 const fertilizersShopRowStyles = StyleSheet.create({
+    gradient: {
+        marginVertical: 5,
+        borderRadius: 12,
+        borderWidth: 0.3,
+        borderColor: "rgb(201, 189, 224)"
+    },
     roundedBlock: {
         justifyContent: "center",
-        marginVertical: 5,
-        padding: 15,
+        paddingVertical: 15,
+        paddingLeft: 15,
+        paddingRight: 7,
         borderRadius: 12,
-        backgroundColor: "rgb(164, 140, 184)",
-        borderWidth: 0.5,
-        borderColor: "rgb(201, 189, 224)"
     },
     horizontalContainer: {
         flexDirection: "row",
@@ -25,83 +29,93 @@ const fertilizersShopRowStyles = StyleSheet.create({
     verticalBuyContainer: {
         flexDirection: "column",
         justifyContent: "space-between",
-        rowGap: 6,
+        rowGap: 12,
         alignItems: "flex-start",
     },
     fertilizerContainer: {
         flexDirection: "row",
-        columnGap: 5,
+        columnGap: 4,
         alignItems: "center"
     },
     fertilizerIcon: {
-        width: 18,
-        height: 18,
-        backgroundColor: "red",
+        width: 20,
+        height: 20,
     },
     fertilizerName: {
         fontSize: 16,
         color: "white",
-        textAlignVertical: "center"
+        textAlignVertical: "center",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "500",
     },
     buyButton: {
         borderRadius: 10,
-        backgroundColor: "pink",
+        backgroundColor: "white",
         alignItems: "center",
         paddingVertical: 6,
         paddingHorizontal: 32,
     },
     buyText: {
-        fontSize: 12,
+        fontSize: 10,
+        fontFamily: "Manrope-Regular",
+        fontWeight: "800",
     },
     description: {
-        fontSize: 12, 
+        alignSelf: "center",
+        fontSize: 14, 
         color: "white",
         textAlign: "center",
         flexShrink: 1,
+        fontFamily: "Manrope-Regular",
+        fontWeight: "500",
     },
     verticalAmountPriceContainer: {
         marginLeft: 24,
         flexDirection: "column",
-        rowGap: 5,
+        rowGap: 4,
+        justifyContent: "space-between",
         alignItems: "flex-end"
     },
     horizontalAmountContainer: {
         flexDirection: "row",
         alignItems: "center",
-        columnGap: 6,
+        columnGap: 8,
     },
-    minusText: {
-        fontSize: 24,
-        fontWeight: "bold",
-        color: "white",
-        textAlign: "center",
+    amountButton: {
+        padding: 8,
+    },
+    minusIcon: {
+        width: 12,
+        height: 12,
     },
     amountText: {
         fontSize: 20,
-        fontWeight: "bold",
         color: "white",
-        textAlign: "center"
+        textAlign: "center",
+        textAlignVertical: "center",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "600",
     },
-    plusText: {
-        fontSize: 24,
-        fontWeight: "bold",
-        color: "white",
-        textAlign: "center"
+    plusIcon: {
+        width: 12,
+        height: 12,
     },
     horizontalPriceContainer: {
         flexDirection: "row",
         alignItems: "center",
         columnGap: 4,
+        marginRight: 8,
     },
     leafIcon: {
-        width: 16,
-        height: 16,
-        backgroundColor: "red",
+        width: 20,
+        height: 20,
     },
     priceText: {
         fontSize: 20,
         color: "white",
         textAlignVertical: "center",
+        fontFamily: "Manrope-Regular",
+        fontWeight: "600",
     },
 });
 

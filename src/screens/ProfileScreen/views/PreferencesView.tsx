@@ -2,6 +2,8 @@ import { View, Text, TouchableOpacity, Switch } from "react-native";
 import profileScreenStyles from "../styles/profileScreen.styles";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
+import { ProfileScreenIcons } from "../../../icons/ProfileScreen.icons";
+import { FitImage } from "../../../components/FitImage/FitImage";
 
 const PreferencesView = () => {
     const navigation = useNavigation();
@@ -26,16 +28,18 @@ const PreferencesView = () => {
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >
-                            <View style={profileScreenStyles.optionIcon}></View>
+                            <View style={profileScreenStyles.optionIcon}>
+                                <ProfileScreenIcons.LangugeIcon width={"100%"} height={"100%"} />
+                            </View>
 
                             <Text style={profileScreenStyles.optionText}>
                                 Language
                             </Text>
                         </View>
 
-                        <Text style={profileScreenStyles.optionText}>
-                            {">"}
-                        </Text>
+                        <View style={profileScreenStyles.navigationArrow}>
+                            <ProfileScreenIcons.NavigationRightIcon width={"100%"} height={"100%"} />
+                        </View>
                     </View>
 
                     <View
@@ -44,23 +48,27 @@ const PreferencesView = () => {
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >
-                            <View style={profileScreenStyles.optionIcon}></View>
+                            <View style={profileScreenStyles.optionIcon}>
+                            <FitImage src={ProfileScreenIcons.currencyIcon} />
+                            </View>
 
                             <Text style={profileScreenStyles.optionText}>
                                 Currency
                             </Text>
                         </View>
 
-                        <Text style={profileScreenStyles.optionText}>
-                            {">"}
-                        </Text>
+                        <View style={profileScreenStyles.navigationArrow}>
+                            <ProfileScreenIcons.NavigationRightIcon width={"100%"} height={"100%"} />
+                        </View>
                     </View>
 
                     <View style={profileScreenStyles.optionContainer}>
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >
-                            <View style={profileScreenStyles.optionIcon}></View>
+                            <View style={profileScreenStyles.optionIcon}>
+                                <FitImage src={ProfileScreenIcons.appThemeIcon} />
+                            </View>
 
                             <Text style={profileScreenStyles.optionText}>
                                 App theme

@@ -1,3 +1,5 @@
+import { ShopScreenIcons } from "../../../icons/ShopScreen.icons";
+
 export class FertilizersDataProvider {
     // Singleton
     private static _instance: FertilizersDataProvider = new FertilizersDataProvider();
@@ -9,9 +11,9 @@ export class FertilizersDataProvider {
     //  Properties
     public get fertilizers() { 
         return [
-            { iconPath: "path/to/icon", name: "Fertilizer", description: "Fastens your tree growth", price: 2},
-            { iconPath: "path/to/icon", name: "Fertilizer x3 pack", price: 5},
-            { iconPath: "path/to/icon", name: "Fertilizer x10 pack", price: 16},
+            { iconSrc: ShopScreenIcons.fertilizerOneIcon, name: "Fertilizer", description: "Fastens your tree growth", price: 2},
+            { iconSrc: ShopScreenIcons.fertilizerThreeIcon, name: "Fertilizer x3 pack", price: 5},
+            { iconSrc: ShopScreenIcons.fertilizerTenIcon, name: "Fertilizer x10 pack", price: 16},
         ];
     }
     
