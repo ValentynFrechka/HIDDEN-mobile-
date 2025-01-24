@@ -9,6 +9,9 @@ const rewardsModalStyle = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    blur: {
+        overflow: "hidden",
+    },
     gradient: {
         width: screenDims.width * 0.6,
         borderWidth: 0.3,

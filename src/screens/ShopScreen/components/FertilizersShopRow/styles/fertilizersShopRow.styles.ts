@@ -49,10 +49,10 @@ const fertilizersShopRowStyles = StyleSheet.create({
         fontWeight: "500",
     },
     buyButton: {
-        borderRadius: 10,
+        borderRadius: 120,
         backgroundColor: "white",
         alignItems: "center",
-        paddingVertical: 6,
+        paddingVertical: 8,
         paddingHorizontal: 32,
     },
     buyText: {

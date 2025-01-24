@@ -51,7 +51,7 @@ const mySkinsViewStyles = StyleSheet.create({
         paddingVertical: screenDims.width * 0.025,
         backgroundColor: "white",
         borderRadius: 15,
-        alignItems: "center"
+        alignItems: "center",
     },
     buySkinText: {
         fontSize: 10,

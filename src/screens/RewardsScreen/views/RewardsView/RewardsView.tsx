@@ -9,6 +9,7 @@ import { calculatePositions } from "./util/circlePositioningUtil";
 import rewardsModalStyle from "./styles/rewardsModal.style";
 import { RewardsScreenIcons } from "../../../../icons/RewardsScreen.icons";
 import { BlurryGradient } from "../../../../components/BlurryGradient";
+import { BlurView } from "expo-blur";
 
 const screenDims = Dimensions.get("screen");
 
@@ -97,36 +98,45 @@ const RewardsView = () => {
                 onRequestClose={() => setModalVisible(false)}
             >
                 <View style={rewardsModalStyle.overlay}>
-                    <BlurryGradient style={rewardsModalStyle.gradient}>
-                        <View style={rewardsModalStyle.window}>
-                            <View style={rewardsModalStyle.verticalContainer}>
-                                <View style={rewardsModalStyle.icon}>
-                                    <selectedReward.icon width={"100%"} height={"100%"}/>
+                    <BlurView
+                        style={rewardsModalStyle.blur}
+                        intensity={40}
+                        tint="dark"
+                        experimentalBlurMethod="dimezisBlurView"
+                    >
+                        <BlurryGradient style={rewardsModalStyle.gradient}>
+                            
+                                <View style={rewardsModalStyle.window}>
+                                    <View style={rewardsModalStyle.verticalContainer}>
+                                        <View style={rewardsModalStyle.icon}>
+                                            <selectedReward.icon width={"100%"} height={"100%"}/>
+                                        </View>
+
+                                        <View style={rewardsModalStyle.textContainer}>
+                                            <Text style={rewardsModalStyle.title}>{selectedReward.title}</Text>
+
+                                            <Text style={rewardsModalStyle.description}>{selectedReward.description}</Text>
+                                        </View>
+
+                                        <TouchableOpacity
+                                            style={rewardsModalStyle.shareButton}
+                                        >
+                                            <Text style={rewardsModalStyle.shareText}>Share with community</Text>
+                                        </TouchableOpacity>
+                                    </View>
+
+                                    <View style={rewardsModalStyle.closeButtonContainer}>
+                                        <TouchableOpacity
+                                            style={rewardsModalStyle.closeButton}
+                                            onPress={() => setModalVisible(false)}
+                                        >
+                                            <RewardsScreenIcons.CrossIcon width={"100%"} height={"100%"}/>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
-
-                                <View style={rewardsModalStyle.textContainer}>
-                                    <Text style={rewardsModalStyle.title}>{selectedReward.title}</Text>
-
-                                    <Text style={rewardsModalStyle.description}>{selectedReward.description}</Text>
-                                </View>
-
-                                <TouchableOpacity
-                                    style={rewardsModalStyle.shareButton}
-                                >
-                                    <Text style={rewardsModalStyle.shareText}>Share with community</Text>
-                                </TouchableOpacity>
-                            </View>
-
-                            <View style={rewardsModalStyle.closeButtonContainer}>
-                                <TouchableOpacity
-                                    style={rewardsModalStyle.closeButton}
-                                    onPress={() => setModalVisible(false)}
-                                >
-                                    <RewardsScreenIcons.CrossIcon width={"100%"} height={"100%"}/>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </BlurryGradient>
+                            
+                        </BlurryGradient>
+                    </BlurView>
                 </View>
             </Modal>
         )}

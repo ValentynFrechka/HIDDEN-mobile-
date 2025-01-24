@@ -46,10 +46,8 @@ const transactionFormViewStyles = StyleSheet.create({
         textAlignVertical: "center",
         color: "white",
     },
-    nextButtonContainer: {
-        alignSelf: "stretch"
-    },
     nextButton: {
+        alignSelf: "stretch",
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "white",

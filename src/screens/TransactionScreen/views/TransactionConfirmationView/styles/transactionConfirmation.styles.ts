@@ -33,7 +33,7 @@ const transactionConfirmationViewStyles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
     },
-    buttonWrap: {
+    button: {
         width: screenDims.width * 0.30,
     },
 });

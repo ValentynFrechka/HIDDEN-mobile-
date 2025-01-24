@@ -7,6 +7,9 @@ import { EShopView } from "../../enum/EShopView";
 import { useTabbedViewContext } from "../../../../components/TabbedView/TabbedViewContext";
 import { EViewContext } from "../../../../enum/EViewContext";
 import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
+import LinearGradient from "react-native-linear-gradient";
+import { LinearShadowView } from "react-native-inner-shadow";
+import PrimaryButton from "../../../../components/buttons/PrimaryButton/PrimaryButton";
 
 const MySkinsView = () => {
     const skinsDataProvider = TreeSkinsDataProvider.instance;
@@ -53,7 +56,10 @@ const MySkinsView = () => {
                 <View style={mySkinsViewStyles.verticalSubcontainer}>
                     <View style={mySkinsViewStyles.infoSubcontainer}>
                         <View style={mySkinsViewStyles.sadfaceIcon}>
-                            <ShopScreenIcons.SadfaceIcon width={"100%"} height={"100%"} />
+                            <ShopScreenIcons.SadfaceIcon
+                                width={"100%"}
+                                height={"100%"}
+                            />
                         </View>
 
                         <View style={mySkinsViewStyles.textSubcontainer}>
@@ -67,14 +73,12 @@ const MySkinsView = () => {
                         </View>
                     </View>
 
-                    <TouchableOpacity
-                        style={mySkinsViewStyles.buySkinButton}
+                    <PrimaryButton
                         onPress={handleBuySkinPress}
-                    >
-                        <Text style={mySkinsViewStyles.buySkinText}>
-                            Buy a skin
-                        </Text>
-                    </TouchableOpacity>
+                        title="Buy a skin"
+                        style={mySkinsViewStyles.buySkinButton}
+                        fontStyle={mySkinsViewStyles.buySkinText}
+                    />
                 </View>
             </View>
         );

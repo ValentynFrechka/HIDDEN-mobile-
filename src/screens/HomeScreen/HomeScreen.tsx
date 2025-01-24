@@ -6,6 +6,7 @@ import { HomeScreenIcons } from "../../icons/HomeScreen.icons";
 import { FitImage } from "../../components/FitImage/FitImage";
 import LinearGradient from "react-native-linear-gradient";
 import { BlurryGradient } from "../../components/BlurryGradient";
+import { BlurView } from "expo-blur";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
@@ -69,36 +70,46 @@ const HomeScreen = () => {
             visible={isModalVisible}
             onRequestClose={() => setModalVisible(false)}
         >
+            
             <View style={homeScreenModalStyles.overlay}>
-                <BlurryGradient style={homeScreenModalStyles.window}
+                <BlurView
+                    intensity={50}
+                    style={homeScreenModalStyles.blur}
+                    tint="dark"
+                    experimentalBlurMethod="dimezisBlurView"
                 >
-                    <View style={homeScreenModalStyles.closeButtonContainer}>
-                        <TouchableOpacity 
-                            style={homeScreenModalStyles.closeButton} 
-                            onPress={() => setModalVisible(false)}
-                        >
-                            <HomeScreenIcons.CrossIcon width={"100%"} height={"100%"} />
-                        </TouchableOpacity>
-                    </View>
+                    <BlurryGradient style={homeScreenModalStyles.window}
+                    >
+                        
+                            <View style={homeScreenModalStyles.closeButtonContainer}>
+                                <TouchableOpacity 
+                                    style={homeScreenModalStyles.closeButton} 
+                                    onPress={() => setModalVisible(false)}
+                                >
+                                    <HomeScreenIcons.CrossIcon width={"100%"} height={"100%"} />
+                                </TouchableOpacity>
+                            </View>
 
-                    <Text style={homeScreenModalStyles.title}>Tree information</Text>
+                            <Text style={homeScreenModalStyles.title}>Tree information</Text>
 
-                    <View style={homeScreenModalStyles.dataContainer}>
-                        <View style={homeScreenModalStyles.dataContainerRow}>
-                            <Text style={homeScreenModalStyles.dataLabel}>NFT Contract Address</Text>
-                            <Text style={homeScreenModalStyles.dataText}>5dje8b6joen97sw8en3he3jo</Text>
-                        </View>
+                            <View style={homeScreenModalStyles.dataContainer}>
+                                <View style={homeScreenModalStyles.dataContainerRow}>
+                                    <Text style={homeScreenModalStyles.dataLabel}>NFT Contract Address</Text>
+                                    <Text style={homeScreenModalStyles.dataText}>5dje8b6joen97sw8en3he3jo</Text>
+                                </View>
 
-                        <View style={homeScreenModalStyles.dataContainerRow}>
-                            <Text style={homeScreenModalStyles.dataLabel}>Leaves left</Text>
-                            <Text style={homeScreenModalStyles.dataText}>180</Text>
-                        </View>
+                                <View style={homeScreenModalStyles.dataContainerRow}>
+                                    <Text style={homeScreenModalStyles.dataLabel}>Leaves left</Text>
+                                    <Text style={homeScreenModalStyles.dataText}>180</Text>
+                                </View>
 
-                        <View style={homeScreenModalStyles.dataContainerRow}>
-                            <Text style={homeScreenModalStyles.dataLabel}>Other service information</Text>
-                        </View>
-                    </View>
-                </BlurryGradient>
+                                <View style={homeScreenModalStyles.dataContainerRow}>
+                                    <Text style={homeScreenModalStyles.dataLabel}>Other service information</Text>
+                                </View>
+                            </View>
+                        
+                    </BlurryGradient>
+                </BlurView>
             </View>
         </Modal>
         </>

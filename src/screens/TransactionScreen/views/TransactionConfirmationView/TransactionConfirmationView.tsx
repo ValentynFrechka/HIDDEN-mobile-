@@ -5,6 +5,8 @@ import { useTransactionViewContext } from "../../contexts/TransactionViewContext
 import { ETransactionView } from "../../enum/ETransactionView";
 import { ETransactionFormKeys } from "../../enum/ETransactionFormKeys";
 import UserBalanceInfo from "../../components/UserBalanceInfo/UserBalanceInfo";
+import PrimaryButton from "../../../../components/buttons/PrimaryButton/PrimaryButton";
+import SecondaryButton from "../../../../components/buttons/SecondaryButton/SecondaryButton";
 
 
 const TransactionConfirmationView = () => {
@@ -46,18 +48,16 @@ const TransactionConfirmationView = () => {
             <UserBalanceInfo balance={320} />
 
             <View style={transactionConfirmationViewStyles.buttonContainer}>
-                <View style={transactionConfirmationViewStyles.buttonWrap}>
-                    <Button 
-                        title="Back"
-                        onPress={handleBackPress}
-                    />
-                </View>
-                <View style={transactionConfirmationViewStyles.buttonWrap}>
-                    <Button 
-                        title="Send" 
-                        onPress={handleSendPress}
-                    />
-                </View>
+                <SecondaryButton 
+                    style={transactionConfirmationViewStyles.button}
+                    title="Back"
+                    onPress={handleBackPress}
+                />
+                <PrimaryButton 
+                    style={transactionConfirmationViewStyles.button}
+                    title="Send" 
+                    onPress={handleSendPress}
+                />
             </View>
         </View>
     );

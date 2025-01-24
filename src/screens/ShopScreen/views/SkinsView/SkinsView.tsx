@@ -4,6 +4,7 @@ import { TreeSkinsDataProvider } from "../../providers/TreeSkinsDataProvider";
 import TreeSkinBlock from "../../components/TreeSkinBlock/TreeSkinBlock";
 import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
 import { FitImage } from "../../../../components/FitImage/FitImage";
+import UserBalanceInfo from "../../../TransactionScreen/components/UserBalanceInfo/UserBalanceInfo";
 
 const SkinsView = () => {
     const skinsDataProvider = TreeSkinsDataProvider.instance;
@@ -24,18 +25,8 @@ const SkinsView = () => {
                     </View>
                 </View>
             </ScrollView>
-
-            <View style={skinsViewStyles.yourBalanceContainer}>
-                <Text style={skinsViewStyles.yourBalanceText}>Your current balance:</Text>
-                
-                <View style={skinsViewStyles.horizontalBalanceContainer}>
-                    <View style={skinsViewStyles.leafIcon}>
-                        <FitImage src={ShopScreenIcons.leafIcon} />
-                    </View>
-
-                    <Text style={skinsViewStyles.balance}>320</Text>
-                </View>
-            </View>
+            
+            <UserBalanceInfo balance={320} style={skinsViewStyles.yourBalanceContainer} /> 
         </View>
     )
 };

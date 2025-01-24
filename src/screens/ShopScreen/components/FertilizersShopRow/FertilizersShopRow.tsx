@@ -9,6 +9,7 @@ import { useState } from "react";
 import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
 import { FitImage } from "../../../../components/FitImage/FitImage";
 import { BlurryGradient } from "../../../../components/BlurryGradient";
+import PrimaryButton from "../../../../components/buttons/PrimaryButton/PrimaryButton";
 
 type FertilizersShopRowProps = {
     iconSrc: ImageSourcePropType;
@@ -54,32 +55,42 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
         <BlurryGradient style={fertilizersShopRowStyles.gradient}>
             <View style={fertilizersShopRowStyles.roundedBlock}>
                 <View style={fertilizersShopRowStyles.horizontalContainer}>
-                    <View style={fertilizersShopRowStyles.horizontalSubcontainer}>
-                        <View style={fertilizersShopRowStyles.verticalBuyContainer}>
+                    <View
+                        style={fertilizersShopRowStyles.horizontalSubcontainer}
+                    >
+                        <View
+                            style={
+                                fertilizersShopRowStyles.verticalBuyContainer
+                            }
+                        >
                             <View
-                                style={fertilizersShopRowStyles.fertilizerContainer}
+                                style={
+                                    fertilizersShopRowStyles.fertilizerContainer
+                                }
                             >
                                 <View
-                                    style={fertilizersShopRowStyles.fertilizerIcon}
+                                    style={
+                                        fertilizersShopRowStyles.fertilizerIcon
+                                    }
                                 >
                                     <FitImage src={iconSrc} />
                                 </View>
 
                                 <Text
-                                    style={fertilizersShopRowStyles.fertilizerName}
+                                    style={
+                                        fertilizersShopRowStyles.fertilizerName
+                                    }
                                 >
                                     {name}
                                 </Text>
                             </View>
 
-                            <TouchableOpacity
+                            <PrimaryButton
+                                title="Buy"
                                 style={fertilizersShopRowStyles.buyButton}
+                                fontStyle={fertilizersShopRowStyles.buyText}
                                 onPress={handleBuy}
-                            >
-                                <Text style={fertilizersShopRowStyles.buyText}>
-                                    Buy
-                                </Text>
-                            </TouchableOpacity>
+                            />
                         </View>
 
                         {getDescriptionComponent()}
@@ -95,9 +106,17 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                                 fertilizersShopRowStyles.horizontalAmountContainer
                             }
                         >
-                            <TouchableOpacity onPress={handleAmountDecrease} style={fertilizersShopRowStyles.amountButton}>
-                                <View style={fertilizersShopRowStyles.minusIcon}>
-                                    <ShopScreenIcons.MinusIcon width={"100%"} height={"100%"} />
+                            <TouchableOpacity
+                                onPress={handleAmountDecrease}
+                                style={fertilizersShopRowStyles.amountButton}
+                            >
+                                <View
+                                    style={fertilizersShopRowStyles.minusIcon}
+                                >
+                                    <ShopScreenIcons.MinusIcon
+                                        width={"100%"}
+                                        height={"100%"}
+                                    />
                                 </View>
                             </TouchableOpacity>
 
@@ -105,9 +124,15 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                                 {amount}
                             </Text>
 
-                            <TouchableOpacity onPress={handleAmountIncrease} style={fertilizersShopRowStyles.amountButton}>
+                            <TouchableOpacity
+                                onPress={handleAmountIncrease}
+                                style={fertilizersShopRowStyles.amountButton}
+                            >
                                 <View style={fertilizersShopRowStyles.plusIcon}>
-                                    <ShopScreenIcons.PlusIcon width={"100%"} height={"100%"} />
+                                    <ShopScreenIcons.PlusIcon
+                                        width={"100%"}
+                                        height={"100%"}
+                                    />
                                 </View>
                             </TouchableOpacity>
                         </View>

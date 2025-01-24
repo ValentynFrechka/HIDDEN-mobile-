@@ -29,7 +29,7 @@ const transactionSuccessfulViewStyles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "white",
-        paddingVertical: 8,
+        paddingVertical: 16,
         borderRadius: 120,
     },
     returnText: {

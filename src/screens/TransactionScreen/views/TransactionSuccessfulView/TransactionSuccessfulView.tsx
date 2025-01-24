@@ -4,6 +4,7 @@ import { useTransactionViewContext } from "../../contexts/TransactionViewContext
 import { ETransactionView } from "../../enum/ETransactionView";
 import { TransactionScreenIcons } from "../../../../icons/TransactionScreen.icons";
 import globalDimensionStyles from "../../../../styles/global.dimension.styles";
+import PrimaryButton from "../../../../components/buttons/PrimaryButton/PrimaryButton";
 
 
 const TransactionSuccessfulView = () => {
@@ -22,14 +23,12 @@ const TransactionSuccessfulView = () => {
                 <Text style={transactionSuccessfulViewStyles.title}>Transaction successful</Text>
             </View>
 
-            <View style={transactionSuccessfulViewStyles.returnButton}>
-                <TouchableOpacity 
-                    style={transactionSuccessfulViewStyles.returnButton}
-                    onPress={handleReturnPress}
-                >
-                    <Text style={transactionSuccessfulViewStyles.returnText}>Return to main page</Text>
-                </TouchableOpacity>
-            </View>
+            <PrimaryButton 
+                title="Return to main page"
+                onPress={handleReturnPress}
+                fontStyle={transactionSuccessfulViewStyles.returnText}
+                style={transactionSuccessfulViewStyles.returnButton}
+            />
         </View>
     );
 };

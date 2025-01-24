@@ -6,6 +6,7 @@ import FertilizerStatusBlock from "../../components/FertilizerStatusBlock/Fertil
 import fertilizersViewStyles from "./styles/fertilizersView.styles";
 import { ShopScreenIcons } from "../../../../icons/ShopScreen.icons";
 import { FitImage } from "../../../../components/FitImage/FitImage";
+import UserBalanceInfo from "../../../TransactionScreen/components/UserBalanceInfo/UserBalanceInfo";
 
 type FertilizerStat = {
     [name: string]: {
@@ -48,18 +49,8 @@ const FertilizersView = () => {
                             />
                         ))}
                     </View>
-
-                    <View style={fertilizersViewStyles.yourBalanceContainer}>
-                        <Text style={fertilizersViewStyles.yourBalanceText}>Your current balance:</Text>
-                        
-                        <View style={fertilizersViewStyles.horizontalBalanceContainer}>
-                            <View style={fertilizersViewStyles.leafIcon}>
-                                <FitImage src={ShopScreenIcons.leafIcon} />
-                            </View>
-
-                            <Text style={fertilizersViewStyles.balance}>{balance}</Text>
-                        </View>
-                    </View>
+                    
+                    <UserBalanceInfo balance={balance} style={fertilizersViewStyles.yourBalanceContainer}/>
                 </View>
 
                 <View style={fertilizersViewStyles.statusView}>

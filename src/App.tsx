@@ -19,6 +19,7 @@ import TransactionIcon from "../assets/icons/navigationBar/transaction-icon.svg"
 import RewardsIcon from "../assets/icons/navigationBar/rewards-icon.svg";
 import NavigationBarButton from "./components/NavigationBarButton/NavigationBarButton";
 import { FitImage } from "./components/FitImage/FitImage";
+import { StatusBar } from "expo-status-bar";
 
 const Tab = createBottomTabNavigator();
 
@@ -35,6 +36,10 @@ export default function App() {
                 end={{ x: 0.8667, y: 0 }}
                 style={{width: "100%", height: "100%", position: "absolute", zIndex: -1}}
             >
+                <StatusBar 
+                    backgroundColor="transparent"
+                    style="inverted"
+                />
                 <NavigationContainer>
                     <SafeAreaView style={globalStyles.safeAreaView}>
                         <Tab.Navigator
