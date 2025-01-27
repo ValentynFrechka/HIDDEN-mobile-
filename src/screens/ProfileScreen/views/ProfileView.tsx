@@ -40,7 +40,9 @@ const ProfileView = () => {
                         </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={profileScreenStyles.optionContainer}>
+                    <TouchableOpacity style={profileScreenStyles.optionContainer}
+                        onPress={() => navigation.navigate(PROFILE_VIEWS.NFC_MANAGEMENT)}
+                    >
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >
@@ -58,7 +60,9 @@ const ProfileView = () => {
                         </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={profileScreenStyles.optionContainer}>
+                    <TouchableOpacity style={profileScreenStyles.optionContainer}
+                        
+                    >
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >

@@ -12,4 +12,7 @@ export const ProfileScreenIcons = {
     LangugeIcon: LangugeIcon,
     currencyIcon: require("../../assets/icons/profileScreen/currency-icon.png"),
     appThemeIcon: require("../../assets/icons/profileScreen/app-theme-icon.png"),
+    readIcon: require("../../assets/icons/profileScreen/read-icon.png"),
+    writeIcon: require("../../assets/icons/profileScreen/write-icon.png"),
+    otherIcon: require("../../assets/icons/profileScreen/other-icon.png"),
 };

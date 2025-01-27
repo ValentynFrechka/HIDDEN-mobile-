@@ -1,94 +1,89 @@
 import { View, Text, TouchableOpacity, Switch } from "react-native";
-import profileScreenStyles from "../styles/profileScreen.styles";
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
+import profileScreenStyles from "../styles/profileScreen.styles";
 import { ProfileScreenIcons } from "../../../icons/ProfileScreen.icons";
 import { FitImage } from "../../../components/FitImage/FitImage";
 
-const PreferencesView = () => {
+const NFCManagementView = () => {
     const navigation = useNavigation();
     const isFocused = useIsFocused();
-    const [isNightModeEnabled, setNightModeEnabled] = useState(false);
 
     useEffect(() => {
         if (!isFocused) navigation.goBack();
-    }, [isFocused])
-
-    const toggleNightMode = () => {
-        setNightModeEnabled(!isNightModeEnabled);
-    }
+    }, [isFocused]);
 
     return (
         <View style={profileScreenStyles.container}>
             <View style={profileScreenStyles.verticalContainer}>
-                <Text style={profileScreenStyles.title}>My preferences</Text>
+                <Text style={profileScreenStyles.title}>NFC Management</Text>
 
                 <View style={profileScreenStyles.optionsContainer}>
-                    <View style={profileScreenStyles.optionContainer}>
-                        <View
-                            style={profileScreenStyles.optionInfoSubcontainer}
-                        >
-                            <View style={profileScreenStyles.optionIcon}>
-                                <ProfileScreenIcons.LangugeIcon width={"100%"} height={"100%"} />
-                            </View>
-
-                            <Text style={profileScreenStyles.optionText}>
-                                Language
-                            </Text>
-                        </View>
-
-                        <View style={profileScreenStyles.navigationArrow}>
-                            <ProfileScreenIcons.NavigationRightIcon width={"100%"} height={"100%"} />
-                        </View>
-                    </View>
-
-                    <View
+                    <TouchableOpacity
                         style={profileScreenStyles.optionContainer}
                     >
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >
                             <View style={profileScreenStyles.optionIcon}>
-                            <FitImage src={ProfileScreenIcons.currencyIcon} />
+                                <FitImage
+                                    src={ProfileScreenIcons.readIcon}
+                                />
                             </View>
 
                             <Text style={profileScreenStyles.optionText}>
-                                Currency
+                                Read
                             </Text>
                         </View>
 
                         <View style={profileScreenStyles.navigationArrow}>
                             <ProfileScreenIcons.NavigationRightIcon width={"100%"} height={"100%"} />
                         </View>
-                    </View>
+                    </TouchableOpacity>
 
-                    <View style={profileScreenStyles.optionContainer}>
+                    <TouchableOpacity style={profileScreenStyles.optionContainer}>
                         <View
                             style={profileScreenStyles.optionInfoSubcontainer}
                         >
                             <View style={profileScreenStyles.optionIcon}>
-                                <FitImage src={ProfileScreenIcons.appThemeIcon} />
+                                <FitImage
+                                    src={ProfileScreenIcons.writeIcon}
+                                />
                             </View>
 
                             <Text style={profileScreenStyles.optionText}>
-                                App theme
+                                Write
                             </Text>
                         </View>
 
-                        <Switch
-                            thumbColor={isNightModeEnabled ? "white" : "rgb(247, 243, 34)"}
-                            trackColor={{false: "rgb(76, 186, 255)", true: "rgb(0, 17, 168)"}}
-                            value={isNightModeEnabled}
-                            onValueChange={toggleNightMode}
-                            ios_backgroundColor={"rgb(76, 186, 255)"}
+                        <View style={profileScreenStyles.navigationArrow}>
+                            <ProfileScreenIcons.NavigationRightIcon width={"100%"} height={"100%"} />
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={profileScreenStyles.optionContainer}>
+                        <View
+                            style={profileScreenStyles.optionInfoSubcontainer}
                         >
-                            
-                        </Switch>
-                    </View>
+                            <View style={profileScreenStyles.optionIcon}>
+                                <FitImage
+                                    src={ProfileScreenIcons.otherIcon}
+                                />
+                            </View>
+
+                            <Text style={profileScreenStyles.optionText}>
+                                Other
+                            </Text>
+                        </View>
+
+                        <View style={profileScreenStyles.navigationArrow}>
+                            <ProfileScreenIcons.NavigationRightIcon width={"100%"} height={"100%"} />
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
     );
 };
 
-export default PreferencesView;
+export default NFCManagementView;
