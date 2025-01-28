@@ -18,7 +18,7 @@ npx expo start
 ### Android:
 Install app dev build from Expo:
 
-https://expo.dev/accounts/donniemix/projects/iLeaf-mobile/builds/84b0a6ab-8a31-46f0-970a-7b702bd0f5eb
+https://expo.dev/accounts/donniemix/projects/iLeaf-mobile/builds/b88e4712-3887-449c-8dbd-753e2506e29b
 ### iOS: 
 Prebuild project on your device
 ```bash
