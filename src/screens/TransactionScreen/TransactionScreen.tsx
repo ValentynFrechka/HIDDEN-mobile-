@@ -9,8 +9,11 @@ import { TransactionFormValuesContext, TransactionFormValuesContextType } from "
 import { TransactionFormValues } from "./types/TransactionFormValues";
 import { TransactionViewContext, TransactionViewContextType } from "./contexts/TransactionViewContext";
 import Compose from "../../components/Compose";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const TransactionScreen = () => {
+    const tabBarHeight = useBottomTabBarHeight();
+
     const [transactionView, setTransactionView] = useState<ETransactionView>(ETransactionView.form);
     const [transactionFormValues, setTransactionFormValuesState] = useState<TransactionFormValues>({
         recipientId: "",
@@ -55,7 +58,7 @@ const TransactionScreen = () => {
                     { component: TransactionViewContext.Provider, props: { value: transactionViewContextValue } },
                     { component: TransactionFormValuesContext.Provider, props: { value: transactionFormContextValue } }
                 ]}>
-                    <View style={transactionScreenDimensionStyles.container}>
+                    <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
                         <TransactionFormView></TransactionFormView>
                     </View>
                 </Compose>
@@ -66,7 +69,7 @@ const TransactionScreen = () => {
                     { component: TransactionViewContext.Provider, props: { value: transactionViewContextValue } },
                     { component: TransactionFormValuesContext.Provider, props: { value: transactionFormContextValue } }
                 ]}>
-                    <View style={transactionScreenDimensionStyles.container}>
+                    <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
                         <TransactionConfirmationView></TransactionConfirmationView>
                     </View>
                 </Compose>
@@ -74,7 +77,7 @@ const TransactionScreen = () => {
         case ETransactionView.success:
             return (
                 <TransactionViewContext.Provider value={transactionViewContextValue}>
-                    <View style={transactionScreenDimensionStyles.container}>
+                    <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
                         <TransactionSuccessfulView></TransactionSuccessfulView>
                     </View>
                 </TransactionViewContext.Provider>

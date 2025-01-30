@@ -7,11 +7,13 @@ import MySkinsView from "./views/MySkinsView/MySkinsView";
 import TabbedView from "../../components/TabbedView/TabbedView";
 import { EShopView } from "./enum/EShopView";
 import { EViewContext } from "../../enum/EViewContext";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const ShopScreen = () => {
+    const tabBarHeight = useBottomTabBarHeight();
 
     return (
-        <View style={shopScreenDimensionStyles.container}>
+        <View style={[shopScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
             <TabbedView 
                 context={EViewContext.shop}
                 fontColor="white" 

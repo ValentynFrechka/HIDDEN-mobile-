@@ -13,7 +13,7 @@ type RootStackParamList = {
 
 type NavigationBarButtonProps = {
     style?: StyleProp<ViewStyle>,
-    icon?: React.FC<SvgProps> | React.FC;
+    icon?: React.FC;
     imageSrc?: ImageSourcePropType;
     screen: keyof RootStackParamList;
 }

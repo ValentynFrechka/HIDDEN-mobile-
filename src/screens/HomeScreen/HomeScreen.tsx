@@ -7,13 +7,16 @@ import { FitImage } from "../../components/FitImage/FitImage";
 import LinearGradient from "react-native-linear-gradient";
 import { BlurryGradient } from "../../components/BlurryGradient";
 import { BlurView } from "expo-blur";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
 
+    const tabBarHeight = useBottomTabBarHeight();
+
     return (
         <>
-        <View style={homeScreenDimensionStyles.container}>
+        <View style={[homeScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
             <TouchableOpacity
                 style={homeScreenDimensionStyles.treeImageContainer}
                 onPress={() => setModalVisible(true)}

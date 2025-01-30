@@ -6,12 +6,14 @@ import RewardsView from "./views/RewardsView/RewardsView";
 import ChallengesView from "./views/ChallengesView/ChallengesView";
 import TabbedView from "../../components/TabbedView/TabbedView";
 import { EViewContext } from "../../enum/EViewContext";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 
 const RewardsScreen = () => {
+    const tabBarHeight = useBottomTabBarHeight();
 
     return (
-        <View style={rewardsScreenDimensionStyles.container}>
+        <View style={[rewardsScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
             <TabbedView 
                 context={EViewContext.rewards}
                 fontColor="white" 

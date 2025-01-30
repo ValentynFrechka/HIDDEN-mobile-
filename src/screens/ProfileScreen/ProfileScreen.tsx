@@ -5,10 +5,13 @@ import ProfileView from "./views/ProfileView";
 import PreferencesView from "./views/PreferencesView/PreferencesView";
 import { PROFILE_VIEWS } from "./constants/ui";
 import NFCManagementView from "./views/NFCManagementView";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 const Stack = createNativeStackNavigator();
 
 const ProfileScreen = () => {
+    const tabBarHeight = useBottomTabBarHeight();
+
     return (
         <Stack.Navigator
             screenOptions={{
@@ -16,7 +19,7 @@ const ProfileScreen = () => {
                 headerTintColor: "white",
                 headerTransparent: true,
                 headerBackButtonDisplayMode: "generic",
-                contentStyle: { backgroundColor: "transparent" },
+                contentStyle: { backgroundColor: "transparent", marginBottom: tabBarHeight },
                 animation: "none",
             }}
         >

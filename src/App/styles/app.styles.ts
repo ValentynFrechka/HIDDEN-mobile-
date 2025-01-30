@@ -13,6 +13,7 @@ const appStyles = StyleSheet.create({
         flex: 1
     },
     tabBarStyle: {
+        position: "absolute",
         height: 60,
         borderTopStartRadius: 15,
         borderTopEndRadius: 15,

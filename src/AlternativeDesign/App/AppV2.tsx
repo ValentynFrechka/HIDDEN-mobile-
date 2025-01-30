@@ -10,18 +10,17 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "../../styles/global.dimension.styles";
 import RewardsScreen from "../../screens/RewardsScreen/RewardsScreen";
 import ShopScreen from "../../screens/ShopScreen/ShopScreen";
-import {
-    Text,
-    TouchableOpacity,
-    View,
-} from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
 import { LinearGradient } from "react-native-linear-gradient";
 import NavigationBarButton from "../../components/NavigationBarButton/NavigationBarButton";
 import { FitImage } from "../../components/FitImage/FitImage";
 import { StatusBar } from "expo-status-bar";
-import appStyles from "./styles/app.styles";
-import { AppIcons } from "../icons/App.icons";
+import { appStyles, appDimensions } from "./styles/app.styles";
+import { AppIcons } from "../icons/AppIcons";
+import { ShadowView } from "react-native-inner-shadow";
+import TabBar from "../components/TabBar/TabBar";
+import { useTabBarIconRenderer } from "../components/TabBar/util/iconRenderer";
 
 const Tab = createBottomTabNavigator();
 
@@ -30,18 +29,21 @@ export default function AppV2() {
         ELoading.linking
     );
 
+    const iconRenderer = useTabBarIconRenderer();
+
     if (loadingState === ELoading.done) {
         return (
             <LinearGradient
-                colors={["rgba(54, 33, 94, 1)", "rgba(5, 1, 18, 1)"]}
-                start={{ x: 0.0181, y: 1 }}
-                end={{ x: 0.8667, y: 0 }}
+                colors={["rgba(230, 188, 255, 1)", "rgba(45, 11, 66, 1)"]}
+                start={{ x: 0.5, y: -0.2999 }}
+                end={{ x: 0.5, y: 0.6819 }}
                 style={appStyles.backgroundGradient}
             >
                 <StatusBar backgroundColor="transparent" style="inverted" />
                 <NavigationContainer>
                     <SafeAreaView style={globalStyles.safeAreaView}>
                         <Tab.Navigator
+                            tabBar={(props) => <TabBar {...props} />}
                             screenOptions={({ route, navigation }) => ({
                                 tabBarLabel: ({ focused }) => {
                                     const color =
@@ -62,12 +64,9 @@ export default function AppV2() {
                                         </Text>
                                     );
                                 },
-                                tabBarStyle: appStyles.tabBarStyle,
                                 headerTransparent: true,
                                 header: () => (
-                                    <View
-                                        style={appStyles.header}
-                                    >
+                                    <View style={appStyles.header}>
                                         <TouchableOpacity
                                             style={globalStyles.profileButton}
                                             onPress={() =>
@@ -76,13 +75,16 @@ export default function AppV2() {
                                                 )
                                             }
                                         >
-                                            <FitImage
-                                                src={AppIcons.profileIcon}
+                                            <AppIcons.ProfileIcon
+                                                size={
+                                                    globalStyles.profileButton
+                                                        .height
+                                                }
                                             />
                                         </TouchableOpacity>
                                     </View>
                                 ),
-                                sceneStyle: appStyles.scene,
+                                sceneStyle: [appStyles.scene],
                             })}
                             initialRouteName={SCREEN_NAMES.HOME}
                         >
@@ -92,7 +94,13 @@ export default function AppV2() {
                                 options={{
                                     tabBarButton: () => (
                                         <NavigationBarButton
-                                            icon={AppIcons.HomeIcon}
+                                            icon={() => (
+                                                <AppIcons.HomeIcon
+                                                    size={
+                                                        appDimensions.navigationButtonSize
+                                                    }
+                                                />
+                                            )}
                                             screen={SCREEN_NAMES.HOME}
                                         />
                                     ),
@@ -104,7 +112,13 @@ export default function AppV2() {
                                 options={{
                                     tabBarButton: () => (
                                         <NavigationBarButton
-                                            icon={AppIcons.ShopIcon}
+                                            icon={() => (
+                                                <AppIcons.ShopIcon
+                                                    size={
+                                                        appDimensions.navigationButtonSize
+                                                    }
+                                                />
+                                            )}
                                             screen={SCREEN_NAMES.SHOP}
                                         />
                                     ),
@@ -116,7 +130,13 @@ export default function AppV2() {
                                 options={{
                                     tabBarButton: () => (
                                         <NavigationBarButton
-                                            icon={AppIcons.TransactionIcon}
+                                            icon={() => (
+                                                <AppIcons.TransactionIcon
+                                                    size={
+                                                        appDimensions.navigationButtonSize
+                                                    }
+                                                />
+                                            )}
                                             screen={SCREEN_NAMES.TRANSACTION}
                                         />
                                     ),
@@ -128,7 +148,13 @@ export default function AppV2() {
                                 options={{
                                     tabBarButton: () => (
                                         <NavigationBarButton
-                                            icon={AppIcons.RewardsIcon}
+                                            icon={() => (
+                                                <AppIcons.RewardsIcon
+                                                    size={
+                                                        appDimensions.navigationButtonSize
+                                                    }
+                                                />
+                                            )}
                                             screen={SCREEN_NAMES.REWARDS}
                                         />
                                     ),
