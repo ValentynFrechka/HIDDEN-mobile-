@@ -13,6 +13,10 @@ npm install
 ```bash
 npx expo start
 ```
+To launch the application with v2 design pass corresponding value in environment:
+```bash
+EXPO_PUBLIC_DESIGN_VERSION=2 npx expo start
+```
 
 ### 3. Install prebuilt app on your device/simulator
 ### Android:
