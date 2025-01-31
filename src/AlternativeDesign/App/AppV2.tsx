@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import React, { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { SCREEN_NAMES } from "../../constants/ui";
-import HomeScreen from "../../screens/HomeScreen/HomeScreen";
+import HomeScreen from "../screens/HomeScreen/HomeScreen";
 import { ELoading } from "../../enum/ELoading";
 import LoadingScreen from "../../screens/LoadingScreen/LoadingScreen";
 import TransactionScreen from "../../screens/TransactionScreen/TransactionScreen";
@@ -10,7 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "../../styles/global.dimension.styles";
 import RewardsScreen from "../../screens/RewardsScreen/RewardsScreen";
 import ShopScreen from "../../screens/ShopScreen/ShopScreen";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View, Image } from "react-native";
 import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
 import { LinearGradient } from "react-native-linear-gradient";
 import NavigationBarButton from "../../components/NavigationBarButton/NavigationBarButton";
@@ -171,6 +171,12 @@ export default function AppV2() {
                         </Tab.Navigator>
                     </SafeAreaView>
                 </NavigationContainer>
+
+                <Image 
+                    source={require("../../../assets/background/background-image.png")}
+                    resizeMode="cover"
+                    style={appStyles.backgroundImage}
+                />
             </LinearGradient>
         );
     } else {

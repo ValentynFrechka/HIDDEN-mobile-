@@ -89,7 +89,7 @@ const HomeScreen = () => {
                                     style={homeScreenModalStyles.closeButton} 
                                     onPress={() => setModalVisible(false)}
                                 >
-                                    <HomeScreenIcons.CrossIcon width={"100%"} height={"100%"} />
+                                    <HomeScreenIcons.CrossIcon width={"100%"} height={"100%"} style={{color: "white"}} />
                                 </TouchableOpacity>
                             </View>
 

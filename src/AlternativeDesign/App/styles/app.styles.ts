@@ -11,6 +11,13 @@ const appStyles = StyleSheet.create({
         width: "100%",
         height: "100%",
         position: "absolute",
+        zIndex: -2,
+    },
+    backgroundImage: {
+        position: "absolute",
+        alignSelf: "center",
+        height: "100%",
+        opacity: 0.7,
         zIndex: -1,
     },
     loadingScreenGradient: {
@@ -20,7 +27,7 @@ const appStyles = StyleSheet.create({
         position: "absolute",
         marginHorizontal: 40,
         paddingHorizontal: 24,
-        height: 72,
+        height: 76,
         borderRadius: 120,
         backgroundColor: "white",
     },

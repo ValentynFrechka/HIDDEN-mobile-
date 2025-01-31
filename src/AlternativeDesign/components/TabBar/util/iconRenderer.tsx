@@ -17,13 +17,13 @@ export const useTabBarIconRenderer = () => {
                     );
                 case SCREEN_NAMES.SHOP:
                     return (
-                        <AppIcons.ShopIcon
+                        <AppIcons.ShopActiveIcon
                             size={appDimensions.navigationButtonSize + 5}
                         />
                     );
                 case SCREEN_NAMES.TRANSACTION:
                     return (
-                        <AppIcons.TransactionIcon
+                        <AppIcons.TransactionActiveIcon
                             size={appDimensions.navigationButtonSize + 5}
                         />
                     );
