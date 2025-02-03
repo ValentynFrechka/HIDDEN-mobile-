@@ -9,7 +9,7 @@ import TransactionScreen from "../../screens/TransactionScreen/TransactionScreen
 import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "../../styles/global.dimension.styles";
 import RewardsScreen from "../../screens/RewardsScreen/RewardsScreen";
-import ShopScreen from "../../screens/ShopScreen/ShopScreen";
+import ShopScreen from "../screens/ShopScreen/ShopScreen";
 import { Text, TouchableOpacity, View, Image } from "react-native";
 import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
 import { LinearGradient } from "react-native-linear-gradient";

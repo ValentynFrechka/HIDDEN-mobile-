@@ -110,14 +110,7 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                                 onPress={handleAmountDecrease}
                                 style={fertilizersShopRowStyles.amountButton}
                             >
-                                <View
-                                    style={fertilizersShopRowStyles.minusIcon}
-                                >
-                                    <ShopScreenIcons.MinusIcon
-                                        width={"100%"}
-                                        height={"100%"}
-                                    />
-                                </View>
+                                <ShopScreenIcons.MinusIcon size={fertilizersShopRowStyles.minusIcon.height} />
                             </TouchableOpacity>
 
                             <Text style={fertilizersShopRowStyles.amountText}>
@@ -128,12 +121,7 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                                 onPress={handleAmountIncrease}
                                 style={fertilizersShopRowStyles.amountButton}
                             >
-                                <View style={fertilizersShopRowStyles.plusIcon}>
-                                    <ShopScreenIcons.PlusIcon
-                                        width={"100%"}
-                                        height={"100%"}
-                                    />
-                                </View>
+                                <ShopScreenIcons.PlusIcon size={fertilizersShopRowStyles.plusIcon.height} />
                             </TouchableOpacity>
                         </View>
 

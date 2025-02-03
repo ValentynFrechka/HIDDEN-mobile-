@@ -7,9 +7,12 @@ import TransactionIcon from "../../../assets/icons/v2/navigationBar/transaction-
 import TransactionActiveIcon from "../../../assets/icons/v2/navigationBar/transaction-active-icon.svg";
 import RewardsIcon from "../../../assets/icons/v2/navigationBar/rewards-icon.svg";
 import RewardsActiveIcon from "../../../assets/icons/v2/navigationBar/rewards-active-icon.svg";
-import { FitImage } from "../../components/FitImage/FitImage";
+import LeafIcon from "../../../assets/icons/v2/general/leaf-icon.svg";
+import TokenIcon from "../../../assets/icons/v2/general/token-icon.svg";
+
 import SvgIcon from "../components/SvgIcon/SvgIcon";
 import { SvgSizeType } from "../types/SvgSizeType";
+import { SvgColorType } from "../types/SvgColorType";
 
 export const AppIcons: {[key: string]: React.FC | React.FC<SvgSizeType>} = {
     ProfileIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={ProfileIcon} />),
@@ -21,4 +24,6 @@ export const AppIcons: {[key: string]: React.FC | React.FC<SvgSizeType>} = {
     TransactionActiveIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={TransactionActiveIcon} />),
     RewardsIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={RewardsIcon} />),
     RewardsActiveIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={RewardsActiveIcon} />),
+    LeafIcon: (({ size, color }: SvgSizeType & SvgColorType) => <SvgIcon size={size} color={color} Icon={LeafIcon} />),
+    TokenIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={TokenIcon} />),
 };
