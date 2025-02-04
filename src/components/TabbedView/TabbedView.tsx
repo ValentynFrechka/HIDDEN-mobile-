@@ -1,6 +1,6 @@
 import { TouchableOpacity, View, Text } from "react-native";
 import { ensureContext } from "./TabbedViewContext";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import tabbedViewStyles from "./tabbedView.styles";
 
 type TabbedViewProps = {
@@ -23,9 +23,11 @@ const TabbedView: React.FC<TabbedViewProps> = ({ context, fontColor, views, init
 
     const renderView = () => {
         if (rerenderViews) {
+            const ViewComponent = useMemo(() => views[view], [view]);
+
             return (
                 <>
-                {React.createElement(views[view])}
+                {ViewComponent ? <ViewComponent /> : null}
                 </>
             );
         }

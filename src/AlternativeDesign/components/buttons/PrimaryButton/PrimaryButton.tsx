@@ -17,6 +17,7 @@ const PrimaryButton: React.FC<ButtonProps> = ({
     fontStyle,
     style,
     shadowColor = "rgba(146, 106, 169, 1)",
+    children
 }) => {
     function getButtonStyle(
         _style: LinearShadowStyle | undefined
@@ -59,9 +60,14 @@ const PrimaryButton: React.FC<ButtonProps> = ({
                     shadowBlur={0}
                     shadowColor={shadowColor}
                 >
-                    <Text style={[primaryButtonStyles.text, fontStyle]}>
-                        {title}
-                    </Text>
+                    {
+                    children ? 
+                        children 
+                        : 
+                        <Text style={[primaryButtonStyles.text, fontStyle]}>
+                            {title}
+                        </Text>
+                    }
                 </LinearShadowView>
             </View>
         </TouchableOpacity>

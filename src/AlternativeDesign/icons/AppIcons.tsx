@@ -14,7 +14,7 @@ import SvgIcon from "../components/SvgIcon/SvgIcon";
 import { SvgSizeType } from "../types/SvgSizeType";
 import { SvgColorType } from "../types/SvgColorType";
 
-export const AppIcons: {[key: string]: React.FC | React.FC<SvgSizeType>} = {
+export const AppIcons: {[key: string]: React.FC | React.FC<SvgSizeType> | React.FC<SvgSizeType & SvgColorType>} = {
     ProfileIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={ProfileIcon} />),
     HomeIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={HomeIcon} />),
     HomeActiveIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={HomeActiveIcon} />),
@@ -25,5 +25,5 @@ export const AppIcons: {[key: string]: React.FC | React.FC<SvgSizeType>} = {
     RewardsIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={RewardsIcon} />),
     RewardsActiveIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={RewardsActiveIcon} />),
     LeafIcon: (({ size, color }: SvgSizeType & SvgColorType) => <SvgIcon size={size} color={color} Icon={LeafIcon} />),
-    TokenIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={TokenIcon} />),
+    TokenIcon: (({ size, color }: SvgSizeType & SvgColorType) => <SvgIcon size={size} color={color} Icon={TokenIcon} />),
 };

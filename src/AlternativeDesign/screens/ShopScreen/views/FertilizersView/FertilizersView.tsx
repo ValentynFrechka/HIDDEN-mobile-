@@ -6,6 +6,7 @@ import FertilizerStatusBlock from "../../components/FertilizerStatusBlock/Fertil
 import fertilizersViewStyles from "./styles/fertilizersView.styles";
 import { ShopScreenIcons } from "../../../../icons/ShopScreenIcons";
 import UserBalanceInfo from "../../../../components/UserBalanceInfo/UserBalanceInfo";
+import { ECurrency } from "../../../../components/UserBalanceInfo/enum/ECurrency";
 
 type FertilizerStat = {
     [name: string]: {
@@ -49,7 +50,7 @@ const FertilizersView = () => {
                         ))}
                     </View>
                     
-                    <UserBalanceInfo balance={balance} style={fertilizersViewStyles.yourBalanceContainer}/>
+                    <UserBalanceInfo balance={balance} currency={ECurrency.leafs} style={fertilizersViewStyles.yourBalanceContainer}/>
                 </View>
 
                 <View style={fertilizersViewStyles.statusView}>
