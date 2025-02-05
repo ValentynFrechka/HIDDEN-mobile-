@@ -8,7 +8,8 @@ const streakBarStyles = StyleSheet.create({
     container: {
         alignItems: "center",
         justifyContent: "center",
-        alignContent: "space-between",
+        flexDirection: "row",
+        columnGap: 12,
         paddingVertical: 20,
     },
     greenLine: {

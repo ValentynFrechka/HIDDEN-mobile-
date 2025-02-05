@@ -1,8 +1,9 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { ChallengeProgress } from "./types/ChallengeProgress";
-import * as Progress from "react-native-progress";
 import challengeStyles from "./styles/challenge.styles";
-import { Gradient } from "../../../../../../../components/Gradient";
+import SecondaryButton from "../../../../../../components/buttons/SecondaryButton/SecondaryButton";
+import PrimaryButton from "../../../../../../components/buttons/PrimaryButton/PrimaryButton";
+import { RewardsScreenIcons } from "../../../../../../icons/RewardsScreenIcons";
 
 type ChallengeProps = {
     text: string
@@ -15,14 +16,20 @@ const Challenge: React.FC<ChallengeProps> = ({ text, progress, reward }) => {
     const renderButtons = () => {
         if (progress.done === progress.outOf) {
             return (
-                <View style={challengeStyles.buttonContainer}>
-                    <TouchableOpacity style={challengeStyles.collectButton}>
-                        <Text style={challengeStyles.buttonText}>Collect the reward</Text>
-                    </TouchableOpacity>
+                <View style={challengeStyles.buttonsContainer}>
+                    <SecondaryButton style={challengeStyles.button}>
+                        <View style={challengeStyles.buttonContent}>
+                            <Text style={[challengeStyles.buttonText, challengeStyles.collectButtonFont]}>Collect</Text>
+                            <RewardsScreenIcons.CollectIcon size={14}/>
+                        </View>
+                    </SecondaryButton>
 
-                    <TouchableOpacity style={challengeStyles.shareButton}>
-                        <Text style={challengeStyles.buttonText}>Share with community</Text>
-                    </TouchableOpacity>
+                    <PrimaryButton style={challengeStyles.button}>
+                        <View style={challengeStyles.buttonContent}>
+                            <Text style={[challengeStyles.buttonText, challengeStyles.shareButtonFont]}>Share</Text>
+                            <RewardsScreenIcons.ShareIcon size={14}/>
+                        </View>
+                    </PrimaryButton>
                 </View>
             )
         }
@@ -37,9 +44,9 @@ const Challenge: React.FC<ChallengeProps> = ({ text, progress, reward }) => {
             
             <View style={challengeStyles.progressBarContainer}>
                 <View>
-                    <Gradient style={challengeStyles.outerProgressBar} />
+                    <View style={challengeStyles.outerProgressBar} />
                 </View>
-                <Gradient style={[challengeStyles.innerProgressBar, {width: `${progress.done/progress.outOf * 100}%`}]} />
+                <View style={[challengeStyles.innerProgressBar, {width: `${progress.done/progress.outOf * 100}%`}]} />
             </View>
 
             <Text style={challengeStyles.rewardText}>{reward} tokens</Text>

@@ -8,7 +8,7 @@ import { RewardsScreenIcons } from "../../../../icons/RewardsScreenIcons";
 
 
 const ChallengesView = () => {
-    const mockedStreak = {today: EWeekDay.thursday, streak: 4, startingFrom: EWeekDay.monday};
+    const streakMock = 4;
 
     return (
         <View style={challengesViewStyles.scrollContainer}>
@@ -16,18 +16,14 @@ const ChallengesView = () => {
                 <View style={challengesViewStyles.container}>
                     <View style={challengesViewStyles.streakInfoContainer}>
                         <View style={challengesViewStyles.yourStreakContainer}>
-                            {/* <RewardsScreenIcons.StreakIcon style={challengesViewStyles.fireIcon} /> */}
-
                             <Text style={challengesViewStyles.yourStreakText}>Your daily streak:</Text>
                         </View>
 
-                        <Text style={challengesViewStyles.yourStreakText}>{mockedStreak.streak}/7</Text>
+                        <Text style={challengesViewStyles.yourStreakText}>{streakMock}/7</Text>
                     </View>
                     
                     <StreakBar 
-                        today={mockedStreak.today} 
-                        streak={mockedStreak.streak} 
-                        startingFrom={mockedStreak.startingFrom} 
+                        streak={streakMock}
                     />
 
                     <View style={challengesViewStyles.challengesList}>

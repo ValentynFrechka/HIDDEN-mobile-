@@ -9,7 +9,7 @@ import { SvgSizeType } from "../types/SvgSizeType";
 import { SvgColorType } from "../types/SvgColorType";
 
 export const ShopScreenIcons = {
-    LeafIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={LeafIcon} />),
+    LeafIcon: (({ size, color }: SvgSizeType & SvgColorType) => <SvgIcon size={size} color={color} Icon={LeafIcon} />),
     TokenIcon: (({ size }: SvgSizeType) => <SvgIcon size={size} Icon={TokenIcon} />),
     MinusIcon: (({ size, color }: SvgSizeType & SvgColorType) => <SvgIcon size={size} color={color} Icon={MinusIcon} />),
     PlusIcon: (({ size, color }: SvgSizeType & SvgColorType) => <SvgIcon size={size} color={color} Icon={PlusIcon} />),

@@ -11,7 +11,7 @@ import globalStyles from "../../styles/global.dimension.styles";
 import RewardsScreen from "../screens/RewardsScreen/RewardsScreen";
 import ShopScreen from "../screens/ShopScreen/ShopScreen";
 import { Text, TouchableOpacity, View, Image } from "react-native";
-import ProfileScreen from "../../screens/ProfileScreen/ProfileScreen";
+import ProfileScreen from "../screens/ProfileScreen/ProfileScreen";
 import { LinearGradient } from "react-native-linear-gradient";
 import NavigationBarButton from "../../components/NavigationBarButton/NavigationBarButton";
 import { StatusBar } from "expo-status-bar";

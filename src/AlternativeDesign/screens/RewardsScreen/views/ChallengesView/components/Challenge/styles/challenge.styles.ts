@@ -18,39 +18,43 @@ const challengeStyles = StyleSheet.create({
         fontSize: 14,
         color: "white"
     },
-    buttonContainer: {
+    buttonsContainer: {
         flexDirection: "row",
         columnGap: 10,
     },
-    collectButton: {
+    button: {
         width: screenDims.width * 0.33,
-        alignItems: "center",
-        justifyContent: "center",
         paddingVertical: screenDims.width * 0.02,
-        backgroundColor: "rgb(255, 179, 0)",
-        borderRadius: screenDims.width * 0.03,
+        borderRadius: 120,
     },
-    shareButton: {
-        width: screenDims.width * 0.33,
+    buttonContent: {
+        flexDirection: "row", 
+        columnGap: 4,
         alignItems: "center",
-        justifyContent: "center",
-        paddingVertical: screenDims.width * 0.02,
-        backgroundColor: "rgb(214, 109, 255)",
-        borderRadius: screenDims.width * 0.03,
     },
     buttonText: {
         fontSize: 10,
+        fontFamily: "Manrope-Regular",
+        fontWeight: 600,
+    },
+    collectButtonFont: {
+        color: "rgba(31, 7, 52, 1)"
+    },
+    shareButtonFont: {
+        color: "white"
     },
     progressBarContainer: {
 
     },
     innerProgressBar: {
+        backgroundColor: "white",
         zIndex: 2, 
         position: "absolute",
         height: 4,
         borderRadius: 1,
     },
     outerProgressBar: {
+        backgroundColor: "white",
         height: 4,
         opacity: 0.3,
         borderRadius: 1,

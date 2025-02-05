@@ -110,6 +110,7 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                         >
                             <ShopScreenIcons.MinusIcon
                                 size={fertilizersShopRowStyles.minusIcon.height}
+                                color="black"
                             />
                         </TouchableOpacity>
 
@@ -123,6 +124,7 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                         >
                             <ShopScreenIcons.PlusIcon
                                 size={fertilizersShopRowStyles.plusIcon.height}
+                                color="black"
                             />
                         </TouchableOpacity>
                     </View>
@@ -132,7 +134,7 @@ const FertilizersShopRow: React.FC<FertilizersShopRowProps> = ({
                             fertilizersShopRowStyles.horizontalPriceContainer
                         }
                     >
-                        <ShopScreenIcons.LeafIcon size={fertilizersShopRowStyles.leafIcon.height} />
+                        <ShopScreenIcons.LeafIcon size={fertilizersShopRowStyles.leafIcon.height} color="black" />
 
                         <Text style={fertilizersShopRowStyles.priceText}>
                             {price}

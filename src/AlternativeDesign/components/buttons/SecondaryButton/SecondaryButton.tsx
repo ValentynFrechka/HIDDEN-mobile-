@@ -17,6 +17,7 @@ const SecondaryButton: React.FC<ButtonProps> = ({
     fontStyle,
     style,
     shadowColor = "rgba(203, 155, 112, 1)",
+    children,
 }) => {
     function getButtonStyle(
         _style: LinearShadowStyle | undefined
@@ -59,9 +60,14 @@ const SecondaryButton: React.FC<ButtonProps> = ({
                     shadowBlur={0}
                     shadowColor={shadowColor}
                 >
-                    <Text style={[secondaryButtonStyles.text, fontStyle]}>
-                        {title}
-                    </Text>
+                    {
+                    children ? 
+                        children 
+                        : 
+                        <Text style={[secondaryButtonStyles.text, fontStyle]}>
+                            {title}
+                        </Text>
+                    }
                 </LinearShadowView>
             </View>
         </TouchableOpacity>
