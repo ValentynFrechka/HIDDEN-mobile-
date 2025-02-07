@@ -5,14 +5,29 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { PROFILE_VIEWS } from "../constants/ui";
 import { ProfileScreenIcons } from "../../../icons/ProfileScreenIcons";
 import NavigationOption from "../components/NavigationOption/NavigationOption";
+import EthKeyService from "../../../../../services/EthKeyService";
+import { useEffect, useState, useTransition } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../../../store/store";
+import { generateKeys, loadKeys } from "../../../../../store/ethKeysSlice";
 
 type ProfileStackParamList = {
     [key in typeof PROFILE_VIEWS[keyof typeof PROFILE_VIEWS]]: undefined;
 };
 
 const ProfileView = () => {
+
+    const dispatch = useDispatch<AppDispatch>();
+    const { publicKey, privateKey, loading, error } = useSelector((state: RootState) => state.ethKeys);
+
     const navigation =
         useNavigation<NativeStackNavigationProp<ProfileStackParamList>>();
+
+    const regenerateKeys = async () => {
+        dispatch(generateKeys());
+    }
+
+    useEffect(() => {}, [dispatch])
 
     return (
         <View style={profileScreenStyles.container}>
@@ -37,6 +52,16 @@ const ProfileView = () => {
                         optionText="Support & Legal"
                         target={PROFILE_VIEWS.SUPPORT}                    
                     />
+
+                    {/* Temporary testing */}
+                    <TouchableOpacity onPress={regenerateKeys} >
+                        <Text style={profileScreenStyles.optionText}>Generate keys</Text>
+                    </TouchableOpacity>
+
+                    <Text style={profileScreenStyles.optionText}>Public: {publicKey}</Text>
+                    <Text style={profileScreenStyles.optionText}>Private: {privateKey}</Text>
+
+                    {/* / Temporary testing */}
                 </View>
             </View>
         </View>

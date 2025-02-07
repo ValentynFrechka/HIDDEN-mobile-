@@ -19,6 +19,8 @@ import { appStyles, appDimensions } from "./styles/app.styles";
 import { AppIcons } from "../icons/AppIcons";
 import TabBar from "../components/TabBar/TabBar";
 import { useTabBarIconRenderer } from "../components/TabBar/util/iconRenderer";
+import { Provider } from "react-redux";
+import { store } from "../../../store/store";
 
 const Tab = createBottomTabNavigator();
 
@@ -28,9 +30,11 @@ export default function AppV2() {
     );
 
     const iconRenderer = useTabBarIconRenderer();
+    
 
     if (loadingState === ELoading.done) {
         return (
+            <Provider store={store}>
             <LinearGradient
                 colors={["rgba(230, 188, 255, 1)", "rgba(45, 11, 66, 1)"]}
                 start={{ x: 0.5, y: -0.2999 }}
@@ -176,6 +180,7 @@ export default function AppV2() {
                     style={appStyles.backgroundImage}
                 />
             </LinearGradient>
+            </Provider>
         );
     } else {
         return (
