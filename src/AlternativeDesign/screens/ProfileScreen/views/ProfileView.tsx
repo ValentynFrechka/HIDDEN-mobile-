@@ -5,29 +5,47 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { PROFILE_VIEWS } from "../constants/ui";
 import { ProfileScreenIcons } from "../../../icons/ProfileScreenIcons";
 import NavigationOption from "../components/NavigationOption/NavigationOption";
-import EthKeyService from "../../../../../services/EthKeyService";
-import { useEffect, useState, useTransition } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../../../../store/store";
-import { generateKeys, loadKeys } from "../../../../../store/ethKeysSlice";
+import EthKeyService, { KeyPair } from "../../../../../services/EthKeyService";
+import { Suspense, useEffect, useState, useTransition } from "react";
 
 type ProfileStackParamList = {
     [key in typeof PROFILE_VIEWS[keyof typeof PROFILE_VIEWS]]: undefined;
 };
 
 const ProfileView = () => {
-
-    const dispatch = useDispatch<AppDispatch>();
-    const { publicKey, privateKey, loading, error } = useSelector((state: RootState) => state.ethKeys);
-
     const navigation =
         useNavigation<NativeStackNavigationProp<ProfileStackParamList>>();
 
-    const regenerateKeys = async () => {
-        dispatch(generateKeys());
-    }
+    const ethKeyService = EthKeyService.instance;
 
-    useEffect(() => {}, [dispatch])
+    const [keys, setKeys] = useState<KeyPair | null>(null);
+    const [loading, setLoading] = useState(false);
+
+    const generateKeys = () => {
+        setLoading(true);
+        ethKeyService.generateKeys(async (newKeys) => {
+            ethKeyService.saveKeysToFile(newKeys);
+            setKeys(newKeys);
+            setLoading(false);
+        });
+    };
+
+    const [isKeysValid, setKeysValid] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (!keys) return;
+        setKeysValid(validateKeys(keys.address, keys.publicKey, keys.privateKey));
+    }, [keys]);
+
+    const validateKeys = (address: string, publicKey: string, privateKey: string) => {
+        return ethKeyService.isAddressValid(address) && ethKeyService.isPublicKeyValid(publicKey) && ethKeyService.isPrivateKeyValid(privateKey)
+    };
+
+    useEffect(() => {
+        ethKeyService.loadKeys((loadedKeys) => {
+            setKeys(loadedKeys)
+        });
+    }, []);
 
     return (
         <View style={profileScreenStyles.container}>
@@ -54,12 +72,22 @@ const ProfileView = () => {
                     />
 
                     {/* Temporary testing */}
-                    <TouchableOpacity onPress={regenerateKeys} >
+                    <TouchableOpacity onPress={generateKeys} >
                         <Text style={profileScreenStyles.optionText}>Generate keys</Text>
                     </TouchableOpacity>
 
-                    <Text style={profileScreenStyles.optionText}>Public: {publicKey}</Text>
-                    <Text style={profileScreenStyles.optionText}>Private: {privateKey}</Text>
+                    {!loading && keys && (
+                        <>
+                            <Text style={profileScreenStyles.optionText}>Address: {keys.address}</Text>
+                            <Text style={profileScreenStyles.optionText}>Public: {keys.publicKey}</Text>
+                            <Text style={profileScreenStyles.optionText}>Private: {keys.privateKey}</Text>
+                            {isKeysValid ? 
+                            (<Text style={profileScreenStyles.optionText}>Keys are valid</Text>)
+                            :
+                            (<Text style={profileScreenStyles.optionText}>Keys aren't valid</Text>)
+                            }
+                        </>
+                    )}
 
                     {/* / Temporary testing */}
                 </View>

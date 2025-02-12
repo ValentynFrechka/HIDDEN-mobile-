@@ -1,4 +1,9 @@
 import { registerRootComponent } from 'expo';
+import './ether-setup.js';
+import './custom-ether.js';
+
+import { install } from "react-native-quick-crypto";
+install();
 
 import App from './src/App/App';
 import AppV2 from './src/AlternativeDesign/App/AppV2';
