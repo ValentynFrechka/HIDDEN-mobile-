@@ -12,10 +12,10 @@ export interface KeyPair {
 }
 
 class EthKeyService {
-    private constructor(){};
-    public static instance = new EthKeyService();
+    static instance: EthKeyService = new EthKeyService();
+    private constructor(){}
 
-    public async generateKeys(callback: (keys: KeyPair) => void) {
+    public async generateKeys(): Promise<KeyPair | null> {
         const wallet = Wallet.createRandom();
         const keyPair: KeyPair = {
             privateKey: wallet.privateKey,
@@ -23,7 +23,7 @@ class EthKeyService {
             address: wallet.address,
         };
 
-        callback(keyPair);
+        return keyPair;
     }
 
     public async saveKeysToFile(keyPair: KeyPair) {
@@ -36,14 +36,14 @@ class EthKeyService {
         }
     }
 
-    public async loadKeys(callback: (keys: KeyPair) => void) {
+    public async loadKeys(): Promise<KeyPair | null> {
         try {
             if (!(await RNFS.exists(FILE_PATH))) {
                 console.warn("Keys file does not exist.");
                 return null;
             }
             const data = await RNFS.readFile(FILE_PATH, "utf8");
-            callback(JSON.parse(data));
+            return JSON.parse(data);
         } catch (error) {
             console.error("Error loading keys:", error);
             return null;
@@ -80,4 +80,8 @@ class EthKeyService {
     }
 }
 
-export default EthKeyService;
+const useEthKeyService = () => {
+    return EthKeyService.instance;
+}
+
+export default useEthKeyService;

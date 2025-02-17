@@ -1,6 +1,8 @@
 const { getDefaultConfig } = require('expo/metro-config');
 
 /** @type {import('expo/metro-config').MetroConfig} */
+require("dotenv").config({ path: "./env/.env" });
+
 const config = getDefaultConfig(__dirname);
 
 config.transformer = {

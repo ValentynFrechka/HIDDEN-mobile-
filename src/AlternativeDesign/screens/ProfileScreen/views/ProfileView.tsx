@@ -7,6 +7,8 @@ import { ProfileScreenIcons } from "../../../icons/ProfileScreenIcons";
 import NavigationOption from "../components/NavigationOption/NavigationOption";
 import EthKeyService, { KeyPair } from "../../../../../services/EthKeyService";
 import { Suspense, useEffect, useState, useTransition } from "react";
+import useEthKeyService from "../../../../../services/EthKeyService";
+import useContractInteractionService from "../../../../../services/ContractInteractionService";
 
 type ProfileStackParamList = {
     [key in typeof PROFILE_VIEWS[keyof typeof PROFILE_VIEWS]]: undefined;
@@ -16,14 +18,17 @@ const ProfileView = () => {
     const navigation =
         useNavigation<NativeStackNavigationProp<ProfileStackParamList>>();
 
-    const ethKeyService = EthKeyService.instance;
+    const contractInteractionService = useContractInteractionService();
+
+    const ethKeyService = useEthKeyService();
 
     const [keys, setKeys] = useState<KeyPair | null>(null);
     const [loading, setLoading] = useState(false);
 
     const generateKeys = () => {
         setLoading(true);
-        ethKeyService.generateKeys(async (newKeys) => {
+        ethKeyService.generateKeys().then(async (newKeys) => {
+            if (!newKeys) return;
             ethKeyService.saveKeysToFile(newKeys);
             setKeys(newKeys);
             setLoading(false);
@@ -42,10 +47,25 @@ const ProfileView = () => {
     };
 
     useEffect(() => {
-        ethKeyService.loadKeys((loadedKeys) => {
+        ethKeyService.loadKeys().then((loadedKeys) => {
             setKeys(loadedKeys)
         });
     }, []);
+
+    // Debug
+    const [balance, setBalance] = useState<bigint>();
+    // useEffect(() => {
+    //     contractInteractionService.getBalances(0).then(value => {
+    //         setBalance(value);
+    //     })
+    // }, []);
+    const getBalance = async () => {
+        contractInteractionService.getBalances(0).then(value => {
+            if (!value) return;
+            setBalance(value);
+        })
+    }
+    //
 
     return (
         <View style={profileScreenStyles.container}>
@@ -88,6 +108,11 @@ const ProfileView = () => {
                             }
                         </>
                     )}
+
+                    <Text style={profileScreenStyles.optionText}>Balance: {balance?.toString()}</Text>
+                    <TouchableOpacity onPress={getBalance} >
+                        <Text style={profileScreenStyles.optionText}>Get balance</Text>
+                    </TouchableOpacity>
 
                     {/* / Temporary testing */}
                 </View>
