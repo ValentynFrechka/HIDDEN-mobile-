@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
 import profileScreenStyles from "../styles/profileScreen.styles";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -52,21 +52,6 @@ const ProfileView = () => {
         });
     }, []);
 
-    // Debug
-    const [balance, setBalance] = useState<bigint>();
-    // useEffect(() => {
-    //     contractInteractionService.getBalances(0).then(value => {
-    //         setBalance(value);
-    //     })
-    // }, []);
-    const getBalance = async () => {
-        contractInteractionService.getBalances(0).then(value => {
-            if (!value) return;
-            setBalance(value);
-        })
-    }
-    //
-
     return (
         <View style={profileScreenStyles.container}>
             <View style={profileScreenStyles.verticalContainer}>
@@ -98,21 +83,36 @@ const ProfileView = () => {
 
                     {!loading && keys && (
                         <>
-                            <Text style={profileScreenStyles.optionText}>Address: {keys.address}</Text>
-                            <Text style={profileScreenStyles.optionText}>Public: {keys.publicKey}</Text>
-                            <Text style={profileScreenStyles.optionText}>Private: {keys.privateKey}</Text>
-                            {isKeysValid ? 
-                            (<Text style={profileScreenStyles.optionText}>Keys are valid</Text>)
-                            :
-                            (<Text style={profileScreenStyles.optionText}>Keys aren't valid</Text>)
-                            }
+                            <Text style={profileScreenStyles.optionText}>Address:</Text>
+                            <TextInput
+                                style={profileScreenStyles.optionText}
+                                value={keys.address}
+                                editable={true}
+                                selectTextOnFocus
+                            />
+
+                            <Text style={profileScreenStyles.optionText}>Public Key:</Text>
+                            <TextInput
+                                style={profileScreenStyles.optionText}
+                                value={keys.publicKey}
+                                editable={false}
+                                selectTextOnFocus
+                            />
+
+                            <Text style={profileScreenStyles.optionText}>Private Key:</Text>
+                            <TextInput
+                                style={profileScreenStyles.optionText}
+                                value={keys.privateKey}
+                                editable={false}
+                                selectTextOnFocus
+                            />
+
+                            <Text style={profileScreenStyles.optionText}>
+                                {isKeysValid ? "Keys are valid" : "Keys aren't valid"}
+                            </Text>
                         </>
                     )}
 
-                    <Text style={profileScreenStyles.optionText}>Balance: {balance?.toString()}</Text>
-                    <TouchableOpacity onPress={getBalance} >
-                        <Text style={profileScreenStyles.optionText}>Get balance</Text>
-                    </TouchableOpacity>
 
                     {/* / Temporary testing */}
                 </View>
