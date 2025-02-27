@@ -1,4 +1,5 @@
 import "react-native-get-random-values";
+import * as Keychain from "react-native-keychain";
 import { ethers, HDNodeWallet, Wallet } from "ethers";
 import RNFS from "react-native-fs";
 
@@ -28,8 +29,12 @@ class EthKeyService {
 
     public async saveKeysToFile(keyPair: KeyPair) {
         try {
-            await this.ensureFileExists();
-            await RNFS.writeFile(FILE_PATH, JSON.stringify(keyPair, null, 2), "utf8");
+            const jsonData = JSON.stringify(keyPair);
+
+            await Keychain.setGenericPassword("eth_wallet", jsonData, {
+                accessible: Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
+                storage: Keychain.STORAGE_TYPE.RSA,
+            });
         } catch (error) {
             console.error("Error saving keys:", error);
             throw error;
@@ -38,26 +43,15 @@ class EthKeyService {
 
     public async loadKeys(): Promise<KeyPair | null> {
         try {
-            if (!(await RNFS.exists(FILE_PATH))) {
-                console.warn("Keys file does not exist.");
+            const credentials = await Keychain.getGenericPassword();
+            if (!credentials) {
+                console.warn("No keys found in storage.");
                 return null;
             }
-            const data = await RNFS.readFile(FILE_PATH, "utf8");
-            return JSON.parse(data);
+            return JSON.parse(credentials.password);
         } catch (error) {
             console.error("Error loading keys:", error);
             return null;
-        }
-    }
-
-    private async ensureFileExists() {
-        try {
-            const exists = await RNFS.exists(FILE_PATH);
-            if (!exists) {
-                await RNFS.writeFile(FILE_PATH, "{}", "utf8");
-            }
-        } catch (error) {
-            console.error("Error ensuring file exists:", error);
         }
     }
 
