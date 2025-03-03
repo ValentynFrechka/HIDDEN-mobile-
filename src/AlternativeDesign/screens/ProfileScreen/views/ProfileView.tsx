@@ -9,6 +9,7 @@ import EthKeyService, { KeyPair } from "../../../../../services/EthKeyService";
 import { Suspense, useEffect, useState, useTransition } from "react";
 import useEthKeyService from "../../../../../services/EthKeyService";
 import useContractInteractionService from "../../../../../services/ContractInteractionService";
+import useBackendInteractionService from "../../../../../services/BackendInteractionService";
 
 type ProfileStackParamList = {
     [key in typeof PROFILE_VIEWS[keyof typeof PROFILE_VIEWS]]: undefined;
@@ -19,6 +20,7 @@ const ProfileView = () => {
         useNavigation<NativeStackNavigationProp<ProfileStackParamList>>();
 
     const contractInteractionService = useContractInteractionService();
+    const backendService = useBackendInteractionService();
 
     const ethKeyService = useEthKeyService();
 
@@ -30,7 +32,9 @@ const ProfileView = () => {
         ethKeyService.generateKeys().then(async (newKeys) => {
             if (!newKeys) return;
             ethKeyService.saveKeysToFile(newKeys);
+            if (keys) backendService.removeUserByAddress(keys?.address);
             setKeys(newKeys);
+            backendService.createUser("User", "example-email@mail.com", "deviceId", newKeys.address);
             setLoading(false);
         });
     };

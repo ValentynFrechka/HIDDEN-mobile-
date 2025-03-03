@@ -1,16 +1,13 @@
 import { TouchableOpacity, View, Text, Modal, Image } from "react-native";
 import homeScreenDimensionStyles from "./styles/screen.dimension.styles";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import homeScreenModalStyles from "./styles/screen.modal.styles";
 import { HomeScreenIcons } from "../../icons/HomeScreenIcons";
-import { FitImage } from "../../../components/FitImage/FitImage";
-import LinearGradient from "react-native-linear-gradient";
-import { BlurryGradient } from "../../../components/BlurryGradient";
-import { BlurView } from "expo-blur";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import useContractInteractionService from "../../../../services/ContractInteractionService";
 import useEthWalletService from "../../../../services/EthWalletService";
 import { Wallet } from "ethers";
+import { useFocusEffect } from "@react-navigation/native";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
@@ -23,26 +20,52 @@ const HomeScreen = () => {
     const walletService = useEthWalletService();
     const contractService = useContractInteractionService();
 
-    useEffect(() => {
-        
-
-        walletService.getWallet().then(wallet => {
-            if (!wallet) return;
-            getBalances(wallet);
-
-            const burnLeafListener = (user: string, treeID: bigint, tokensEarned: bigint) => {
-                if (user.toLowerCase() === wallet.address.toLowerCase()) {
+    useFocusEffect(
+        useCallback(() => {
+            const updateBalances = async () => {
+                const wallet = await walletService.getWallet();
+                if (wallet) {
                     getBalances(wallet);
                 }
             };
-    
-            contractService.onBurnLeaf(wallet.address, burnLeafListener);
-    
+
+            const subscribeToEvents = async () => {
+                const wallet = await walletService.getWallet();
+                if (wallet) {
+                    const burnLeafListener = (user: string, treeID: bigint, tokensEarned: bigint) => {
+                        if (user.toLowerCase() === wallet.address.toLowerCase()) {
+                            getBalances(wallet);
+                        }
+                    };
+
+                    contractService.onBurnLeaf(wallet.address, burnLeafListener);
+                }
+            }
+
+            const unsubscribeFromEvents = async () => {
+                const wallet = await walletService.getWallet();
+                if (wallet) {
+                    const burnLeafListener = (user: string, treeID: bigint, tokensEarned: bigint) => {
+                        if (user.toLowerCase() === wallet.address.toLowerCase()) {
+                            getBalances(wallet);
+                        }
+                    };
+
+                    contractService.offBurnLeaf(wallet.address, burnLeafListener);
+                }
+            }
+
+            updateBalances();
+
+            subscribeToEvents();
+
             return () => {
-                contractService.offBurnLeaf(wallet.address, burnLeafListener);
+                setLeafAmount(BigInt(0));
+                setTokenAmount(BigInt(0));
+                unsubscribeFromEvents();
             };
-        })
-    }, []);
+        }, [])
+    );
 
     const getBalances = async (wallet: Wallet) => {
         contractService.getLeafBalance(wallet.address, 0).then(leafs => {

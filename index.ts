@@ -11,10 +11,10 @@ import AppV2 from './src/AlternativeDesign/App/AppV2';
 const designVersion: number = +process.env.EXPO_PUBLIC_DESIGN_VERSION;
 
 if (designVersion === 2) {
-    registerRootComponent(AppV2)
+    registerRootComponent(App);
 }
 else {
-    registerRootComponent(App);
+    registerRootComponent(AppV2);
 }
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
