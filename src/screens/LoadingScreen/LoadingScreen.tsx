@@ -7,6 +7,9 @@ import { loadingScreenDimensionStyles, circleProps } from "./styles/screen.dimen
 import { SafeAreaView } from "react-native-safe-area-context";
 import globalStyles from "../../styles/global.dimension.styles";
 import { LoadingScreenIcons } from "../../icons/LoadingScreen.icons";
+import useEthKeyService from "../../../services/EthKeyService";
+import useEthWalletService from "../../../services/EthWalletService";
+import useBackendInteractionService from "../../../services/BackendInteractionService";
 
 type LoadingScreenProps = {
     initialLoadingState: ELoading.linking | ELoading.activating | ELoading.signingIn | ELoading.done,
@@ -16,11 +19,29 @@ type LoadingScreenProps = {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ initialLoadingState, onLoadingStateChange }) => {
     const { stateText, loadingState, setLoadingState } = useLoadingStateUtil(initialLoadingState);
 
+    const keyService = useEthKeyService();
+    const backendService = useBackendInteractionService();
+
     useEffect(() => {
         setTimeout(() => {
             onLoadingStateChange(loadingState);
         }, loadingState === ELoading.done ? 1000 : 0);
     }, [loadingState]);
+
+    useEffect(() => {
+        const loadKeys = async () => {
+            let keys = await keyService.loadKeys();
+            if (!keys) {
+                keys = await keyService.generateKeys();
+                if (!keys) return;
+                await backendService.createUser("User", "email@mail.com", "deviceId", keys.address);
+                await keyService.saveKeysToFile(keys);
+            }
+            if (keys) setLoadingState(ELoading.done);
+        };
+
+        loadKeys();
+    }, []);
 
     if (loadingState !== ELoading.done) {
         return (

@@ -161,7 +161,7 @@ const HomeScreen = () => {
 
                             <View style={homeScreenModalStyles.dataContainerRow}>
                                 <Text style={homeScreenModalStyles.dataLabel}>Leaves left</Text>
-                                <Text style={homeScreenModalStyles.dataText}>180</Text>
+                                <Text style={homeScreenModalStyles.dataText}>{leafAmount.toString()}</Text>
                             </View>
 
                             <View style={homeScreenModalStyles.dataContainerRow}>
