@@ -1,4 +1,4 @@
-import { Alert, View } from "react-native"
+import { Alert, View, Image } from "react-native"
 import TransactionFormView from "./views/TransactionFormView/TransactionFormView";
 import TransactionConfirmationView from "./views/TransactionConfirmationView/TransactionConfirmationView";
 import TransactionSuccessfulView from "./views/TransactionSuccessfulView/TransactionSuccessfulView";
@@ -61,6 +61,12 @@ const TransactionScreen = () => {
                     <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
                         <TransactionFormView></TransactionFormView>
                     </View>
+
+                    <Image 
+                        source={require("../../../../assets/background/background-image.png")}
+                        resizeMode="cover"
+                        style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
+                    />
                 </Compose>
             );
         case ETransactionView.confirmation:
@@ -72,6 +78,12 @@ const TransactionScreen = () => {
                     <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
                         <TransactionConfirmationView></TransactionConfirmationView>
                     </View>
+
+                    <Image 
+                        source={require("../../../../assets/background/background-image.png")}
+                        resizeMode="cover"
+                        style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
+                    />
                 </Compose>
             );
         case ETransactionView.success:
@@ -80,6 +92,12 @@ const TransactionScreen = () => {
                     <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
                         <TransactionSuccessfulView></TransactionSuccessfulView>
                     </View>
+
+                    <Image 
+                        source={require("../../../../assets/background/background-image.png")}
+                        resizeMode="cover"
+                        style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
+                    />
                 </TransactionViewContext.Provider>
             );
     }

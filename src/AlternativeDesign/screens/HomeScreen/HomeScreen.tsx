@@ -172,6 +172,12 @@ const HomeScreen = () => {
                 </View>
             </View>
         </Modal>
+
+        <Image 
+            source={require("../../../../assets/background/background-image.png")}
+            resizeMode="cover"
+            style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
+        />
         </>
     );
 }

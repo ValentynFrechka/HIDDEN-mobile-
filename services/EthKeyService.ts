@@ -16,6 +16,8 @@ class EthKeyService {
     static instance: EthKeyService = new EthKeyService();
     private constructor(){}
 
+    private keyPair: KeyPair | null = null;
+
     public async generateKeys(): Promise<KeyPair | null> {
         const wallet = Wallet.createRandom();
         const keyPair: KeyPair = {
@@ -42,13 +44,18 @@ class EthKeyService {
     }
 
     public async loadKeys(): Promise<KeyPair | null> {
+        if (this.keyPair) {
+            return this.keyPair;
+        }
+
         try {
             const credentials = await Keychain.getGenericPassword();
             if (!credentials) {
                 console.warn("No keys found in storage.");
                 return null;
             }
-            return JSON.parse(credentials.password);
+            this.keyPair = JSON.parse(credentials.password);
+            return this.keyPair;
         } catch (error) {
             console.error("Error loading keys:", error);
             return null;

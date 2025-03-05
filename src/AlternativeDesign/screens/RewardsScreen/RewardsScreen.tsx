@@ -1,4 +1,4 @@
-import { View } from "react-native"
+import { View, Image } from "react-native"
 import LeaderboardView from "./views/LeaderboardView/LeaderboardView";
 import { ERewardsView } from "./enum/ERewardsView";
 import rewardsScreenDimensionStyles from "./styles/rewardsScreen.dimension.styles";
@@ -13,6 +13,7 @@ const RewardsScreen = () => {
     const tabBarHeight = useBottomTabBarHeight();
 
     return (
+        <>
         <View style={[rewardsScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
             <TabbedView 
                 context={EViewContext.rewards}
@@ -26,6 +27,12 @@ const RewardsScreen = () => {
                 rerenderViews={true}
             />
         </View>
+        <Image 
+            source={require("../../../../assets/background/background-image.png")}
+            resizeMode="cover"
+            style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
+        />
+        </>
     );
 };
 

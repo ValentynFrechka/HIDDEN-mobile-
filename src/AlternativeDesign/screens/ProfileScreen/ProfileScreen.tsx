@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import profileScreenStyles from "./styles/profileScreen.styles";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import ProfileView from "./views/ProfileView";
@@ -14,6 +14,7 @@ const ProfileScreen = () => {
     const tabBarHeight = useBottomTabBarHeight();
 
     return (
+        <>
         <Stack.Navigator
             screenOptions={{
                 headerTitle: "",
@@ -41,6 +42,13 @@ const ProfileScreen = () => {
                 component={SupportView}
             />
         </Stack.Navigator>
+        
+        <Image 
+            source={require("../../../../assets/background/background-image.png")}
+            resizeMode="cover"
+            style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
+        />
+        </>
     );
 };
 
