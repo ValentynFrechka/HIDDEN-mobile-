@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Image } from "react-native";
+import { View, Image, Platform } from "react-native";
 import FertilizersView from "./views/FertilizersView/FertilizersView";
 import shopScreenDimensionStyles from "./styles/screen.dimension.styles";
 import SkinsView from "./views/SkinsView/SkinsView";
@@ -27,11 +27,12 @@ const ShopScreen = () => {
             />
         </View>
 
+        {Platform.OS === "android" &&
         <Image 
             source={require("../../../../assets/background/background-image.png")}
             resizeMode="cover"
             style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
-        />
+        />}
         </>
     );
 };

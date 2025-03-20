@@ -10,6 +10,7 @@ import { LoadingScreenIcons } from "../../icons/LoadingScreen.icons";
 import useEthKeyService from "../../../services/EthKeyService";
 import useEthWalletService from "../../../services/EthWalletService";
 import useBackendInteractionService from "../../../services/BackendInteractionService";
+import DeviceInfo from "react-native-device-info";
 
 type LoadingScreenProps = {
     initialLoadingState: ELoading.linking | ELoading.activating | ELoading.signingIn | ELoading.done,
@@ -34,7 +35,8 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ initialLoadingState, onLo
             if (!keys) {
                 keys = await keyService.generateKeys();
                 if (!keys) return;
-                await backendService.createUser("User", "email@mail.com", "deviceId", keys.address);
+                const deviceId = await DeviceInfo.getUniqueId();
+                await backendService.createUser(`User-${deviceId}`, `${keys.address}@mail.com`, deviceId, keys.address);
                 await keyService.saveKeysToFile(keys);
             }
             if (keys) setLoadingState(ELoading.done);

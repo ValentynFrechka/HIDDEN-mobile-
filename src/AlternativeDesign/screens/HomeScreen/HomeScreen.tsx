@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, Text, Modal, Image } from "react-native";
+import { TouchableOpacity, View, Text, Modal, Image, Platform } from "react-native";
 import homeScreenDimensionStyles from "./styles/screen.dimension.styles";
 import { useCallback, useEffect, useState } from "react";
 import homeScreenModalStyles from "./styles/screen.modal.styles";
@@ -66,10 +66,14 @@ const HomeScreen = () => {
             };
         }, [])
     );
+    
 
     const getBalances = async (wallet: Wallet) => {
         contractService.getLeafBalance(wallet.address, 0).then(leafs => {
-            if (!leafs) return;
+            if (!leafs) {
+                setLeafAmount(BigInt(0));
+                return;
+            }
             setLeafAmount(leafs);
         })
         contractService.getTokenBalance(wallet.address).then(tokens => {
@@ -173,11 +177,13 @@ const HomeScreen = () => {
             </View>
         </Modal>
 
+        {Platform.OS === "android" &&
         <Image 
             source={require("../../../../assets/background/background-image.png")}
             resizeMode="cover"
             style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
-        />
+        />}
+        
         </>
     );
 }

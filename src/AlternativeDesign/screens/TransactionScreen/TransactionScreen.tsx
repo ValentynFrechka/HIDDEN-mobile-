@@ -1,4 +1,4 @@
-import { Alert, View, Image } from "react-native"
+import { Alert, View, Image, Platform } from "react-native"
 import TransactionFormView from "./views/TransactionFormView/TransactionFormView";
 import TransactionConfirmationView from "./views/TransactionConfirmationView/TransactionConfirmationView";
 import TransactionSuccessfulView from "./views/TransactionSuccessfulView/TransactionSuccessfulView";
@@ -62,11 +62,12 @@ const TransactionScreen = () => {
                         <TransactionFormView></TransactionFormView>
                     </View>
 
+                    {Platform.OS === "android" &&
                     <Image 
                         source={require("../../../../assets/background/background-image.png")}
                         resizeMode="cover"
                         style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
-                    />
+                    />}
                 </Compose>
             );
         case ETransactionView.confirmation:
@@ -79,11 +80,12 @@ const TransactionScreen = () => {
                         <TransactionConfirmationView></TransactionConfirmationView>
                     </View>
 
+                    {Platform.OS === "android" &&
                     <Image 
                         source={require("../../../../assets/background/background-image.png")}
                         resizeMode="cover"
                         style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
-                    />
+                    />}
                 </Compose>
             );
         case ETransactionView.success:
@@ -93,11 +95,12 @@ const TransactionScreen = () => {
                         <TransactionSuccessfulView></TransactionSuccessfulView>
                     </View>
 
+                    {Platform.OS === "android" &&
                     <Image 
                         source={require("../../../../assets/background/background-image.png")}
                         resizeMode="cover"
                         style={{position: "absolute", zIndex: -1, opacity: 0.7, alignSelf: "center", height: "100%",}}
-                    />
+                    />}
                 </TransactionViewContext.Provider>
             );
     }

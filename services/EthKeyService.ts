@@ -37,6 +37,8 @@ class EthKeyService {
                 accessible: Keychain.ACCESSIBLE.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
                 storage: Keychain.STORAGE_TYPE.RSA,
             });
+
+            this.keyPair = keyPair;
         } catch (error) {
             console.error("Error saving keys:", error);
             throw error;
