@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput } from "react-native";
 import transactionFormViewStyles from "./styles/transactionFormView.styles";
 import { useTransactionFormValueContext } from "../../contexts/TransactionFormValuesContext";
 import { ETransactionFormKeys } from "../../enum/ETransactionFormKeys";
@@ -26,7 +26,6 @@ const TransactionFormView = () => {
                             placeholderTextColor={"rgba(255,255,255,0.5)"}
                             autoCorrect={false}
                             autoCapitalize="none"
-                            inputMode="numeric"
                             onChangeText={(value) =>
                                 setTransactionFormValues(
                                     ETransactionFormKeys.recipientId,
@@ -42,6 +41,7 @@ const TransactionFormView = () => {
                             placeholderTextColor={"rgba(255,255,255,0.5)"}
                             autoCorrect={false}
                             autoCapitalize="none"
+                            inputMode="numeric"
                             onChangeText={(value) =>
                                 setTransactionFormValues(
                                     ETransactionFormKeys.amount,

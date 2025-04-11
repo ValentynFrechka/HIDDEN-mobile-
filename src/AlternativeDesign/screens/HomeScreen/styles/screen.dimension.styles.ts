@@ -11,10 +11,10 @@ const homeScreenDimensionStyles = StyleSheet.create({
     },
     treeImageContainer: {
         alignSelf: "center",
-        alignItems: "center",
-        width: screenDims.width * 0.8,
-        height: screenDims.height * 0.42,
+        alignItems: "flex-start",
+        width: screenDims.width * 0.9,
         marginTop: screenDims.height * 0.1,
+        flexShrink: 1,
     },
     verticalContainer: {
         flexDirection: "column",

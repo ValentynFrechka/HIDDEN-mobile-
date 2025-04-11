@@ -8,6 +8,7 @@ import useContractInteractionService from "../../../../services/ContractInteract
 import useEthWalletService from "../../../../services/EthWalletService";
 import { Wallet } from "ethers";
 import { useFocusEffect } from "@react-navigation/native";
+import { FitImage } from "../../../components/FitImage/FitImage";
 
 const HomeScreen = () => {
     const [isModalVisible, setModalVisible] = useState(false);
@@ -89,8 +90,7 @@ const HomeScreen = () => {
                 style={homeScreenDimensionStyles.treeImageContainer}
                 onPress={() => setModalVisible(true)}
             >
-                <Image style={{height: "100%"}} source={require("../../../../assets/tree-image-example.png")}></Image>
-
+                <FitImage src={require("../../../../assets/nft-example-image.png")}></FitImage>
             </TouchableOpacity>
 
             <View style={homeScreenDimensionStyles.verticalContainer}>

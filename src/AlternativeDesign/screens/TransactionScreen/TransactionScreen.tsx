@@ -1,4 +1,4 @@
-import { Alert, View, Image, Platform } from "react-native"
+import { Alert, View, Image, Platform, TouchableWithoutFeedback, Keyboard } from "react-native"
 import TransactionFormView from "./views/TransactionFormView/TransactionFormView";
 import TransactionConfirmationView from "./views/TransactionConfirmationView/TransactionConfirmationView";
 import TransactionSuccessfulView from "./views/TransactionSuccessfulView/TransactionSuccessfulView";
@@ -58,9 +58,11 @@ const TransactionScreen = () => {
                     { component: TransactionViewContext.Provider, props: { value: transactionViewContextValue } },
                     { component: TransactionFormValuesContext.Provider, props: { value: transactionFormContextValue } }
                 ]}>
-                    <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
-                        <TransactionFormView></TransactionFormView>
-                    </View>
+                    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                        <View style={[transactionScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
+                                <TransactionFormView></TransactionFormView>
+                        </View>
+                    </TouchableWithoutFeedback>
 
                     {Platform.OS === "android" &&
                     <Image 
