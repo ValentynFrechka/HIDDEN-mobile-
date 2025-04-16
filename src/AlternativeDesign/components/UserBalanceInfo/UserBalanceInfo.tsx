@@ -4,7 +4,7 @@ import userBalanceInfoStyles from "./styles/userBalanceInfo.styles";
 import { ECurrency } from "./enum/ECurrency";
 
 type UserBalanceInfoProps = {
-    balance: number;
+    balance: bigint;
     currency: ECurrency;
     style?: StyleProp<ViewStyle>;
 }
@@ -27,7 +27,7 @@ const UserBalanceInfo: React.FC<UserBalanceInfoProps> = ({ balance, currency, st
             <View style={userBalanceInfoStyles.balanceSubcontainer}>
                 {getIcon(currency)}
                 
-                <Text style={userBalanceInfoStyles.balanceLabel}>{balance}</Text>
+                <Text style={userBalanceInfoStyles.balanceLabel}>{balance.toString()}</Text>
             </View>
     </View>
     );

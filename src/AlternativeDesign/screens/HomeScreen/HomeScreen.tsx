@@ -1,4 +1,4 @@
-import { TouchableOpacity, View, Text, Modal, Image, Platform } from "react-native";
+import { TouchableOpacity, View, Text, Modal, Image, Platform, Linking, Button } from "react-native";
 import homeScreenDimensionStyles from "./styles/screen.dimension.styles";
 import { useCallback, useEffect, useState } from "react";
 import homeScreenModalStyles from "./styles/screen.modal.styles";
@@ -83,6 +83,15 @@ const HomeScreen = () => {
         })
     }
 
+    const handleContractLinkPress = useCallback(async () => {
+        const url = process.env.EXPO_PUBLIC_ERC1155_LINK || "";
+        const supported = await Linking.canOpenURL(url);
+    
+        if (supported) {
+          await Linking.openURL(url);
+        }
+      }, []);
+
     return (
         <>
         <View style={[homeScreenDimensionStyles.container, {marginBottom: tabBarHeight}]}>
@@ -160,7 +169,9 @@ const HomeScreen = () => {
                         <View style={homeScreenModalStyles.dataContainer}>
                             <View style={homeScreenModalStyles.dataContainerRow}>
                                 <Text style={homeScreenModalStyles.dataLabel}>NFT Contract Address</Text>
-                                <Text style={homeScreenModalStyles.dataText}>5dje8b6joen97sw8en3he3jo</Text>
+                                <TouchableOpacity onPress={handleContractLinkPress}>
+                                    <Text style={[homeScreenModalStyles.dataText, {color: "blue"}]}>{process.env.EXPO_PUBLIC_ERC1155_ADDRESS}</Text>
+                                </TouchableOpacity>
                             </View>
 
                             <View style={homeScreenModalStyles.dataContainerRow}>

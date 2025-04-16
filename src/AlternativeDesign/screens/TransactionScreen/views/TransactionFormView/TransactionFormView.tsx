@@ -5,10 +5,74 @@ import { ETransactionFormKeys } from "../../enum/ETransactionFormKeys";
 import UserBalanceInfo from "../../../../components/UserBalanceInfo/UserBalanceInfo";
 import PrimaryButton from "../../../../components/buttons/PrimaryButton/PrimaryButton";
 import { ECurrency } from "../../../../components/UserBalanceInfo/enum/ECurrency";
+import useEthWalletService from "../../../../../../services/EthWalletService";
+import useContractInteractionService from "../../../../../../services/ContractInteractionService";
+import { useFocusEffect } from "@react-navigation/native";
+import { useCallback, useState } from "react";
+import { Wallet } from "ethers";
 
 const TransactionFormView = () => {
     const { transactionFormValues, setTransactionFormValues, handleSubmit } =
         useTransactionFormValueContext();
+
+    const walletService = useEthWalletService();
+    const contractService = useContractInteractionService();
+
+    const [balance, setBalance] = useState(BigInt(0));
+
+    useFocusEffect(
+        useCallback(() => {
+            const updateBalances = async () => {
+                const wallet = await walletService.getWallet();
+                if (wallet) {
+                    getBalances(wallet);
+                }
+            };
+
+            const subscribeToEvents = async () => {
+                const wallet = await walletService.getWallet();
+                if (wallet) {
+                    const burnLeafListener = (user: string, treeID: bigint, tokensEarned: bigint) => {
+                        if (user.toLowerCase() === wallet.address.toLowerCase()) {
+                            getBalances(wallet);
+                        }
+                    };
+
+                    contractService.onBurnLeaf(wallet.address, burnLeafListener);
+                }
+            }
+
+            const unsubscribeFromEvents = async () => {
+                const wallet = await walletService.getWallet();
+                if (wallet) {
+                    const burnLeafListener = (user: string, treeID: bigint, tokensEarned: bigint) => {
+                        if (user.toLowerCase() === wallet.address.toLowerCase()) {
+                            getBalances(wallet);
+                        }
+                    };
+
+                    contractService.offBurnLeaf(wallet.address, burnLeafListener);
+                }
+            }
+
+            updateBalances();
+
+            subscribeToEvents();
+
+            return () => {
+                setBalance(BigInt(0));
+                unsubscribeFromEvents();
+            };
+        }, [])
+    );
+    
+
+    const getBalances = async (wallet: Wallet) => {
+        contractService.getTokenBalance(wallet.address).then(tokens => {
+            if (!tokens) return;
+            setBalance(tokens);
+        })
+    }
 
     return (
         <View style={transactionFormViewStyles.verticalContainer}>
@@ -51,7 +115,7 @@ const TransactionFormView = () => {
                         />
                     </View>
 
-                    <UserBalanceInfo balance={320} currency={ECurrency.tokens} />
+                    <UserBalanceInfo balance={balance} currency={ECurrency.tokens} />
                 </View>
 
                 <PrimaryButton
